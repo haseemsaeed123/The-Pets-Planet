@@ -1,0 +1,93 @@
+﻿@model FypOnEF.ViewModels.Pet.PetViewModel
+
+@{
+    Layout = "~/Views/Shared/_AllViewLayout.cshtml";
+    ViewBag.Title = "PetUpload";
+}
+
+@section product{
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="~/index">Home</a>
+                <span>//</span>
+            </li>
+            <li>Sell pet</li>
+        </ul>
+    </div>
+</div>
+<!--Typography-->
+<section class="inner-pages py-5">
+    <div class="container py-xl-5 py-sm-3 ">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Upload Pet</h3>
+        <section class="typo-section py-4 border-top border-bottom">
+            @using (Html.BeginForm("addnewpet", "Pet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PetsC1_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.PetsC1_Name, Model.DropDownPets, "---Select Pet---", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PetsC1_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PetsC2_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.PetsC2_Name, Model.DropDownCategory, "---Select Pet Breed---", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PetsC2_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PetsC3_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PetsC3_Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PetsC3_Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Descrption, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Descrption, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Descrption, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImageFilePets, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="ImageFilePets" required title="Upload Pet Image" />
+                            @Html.ValidationMessageFor(model => model.ImageFilePets, "", new { @class = "text-danger" })
+                            <p>@TempData["extension"]</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                            <p>@TempData["ProRegMsg"]</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</section>
+}

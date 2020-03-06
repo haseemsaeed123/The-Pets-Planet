@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FypOnEF.ViewModels.Blog.BlogViewModel>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "GetNotApproveBlogs";
+}
+
+
+@section admin{
+    <div class="container col-12">
+        <table class="table table-responsive-lg table-responsive-md text-center table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Blogger Name</th>
+                    <th>Blog Title</th>
+                    <th>Blog Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            @{
+                int j = 1;
+
+                foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@j</td>
+                        <td>@data.US_Name</td>
+                        <td>@data.Blog_Title</td>
+                        <td>@data.Blog_Date</td>
+                        <td>
+
+                            <a role="button" class="btn btn-outline-dark" href="@Url.Action("BlogDetails","Blog",new {@id=data.Blog_Id})">Details</a>
+                            <a role="button" class="btn btn-outline-dark" onclick="Approve(@data.Blog_Id)">Approve</a>
+                            <a role="button" class="btn btn-outline-dark" onclick="Delete(@data.Blog_Id)">Delete</a>
+                        </td>
+                    </tr>
+                    j++;
+                }
+            }
+        </table>
+    </div>
+}
+  
+@section script{  
+<script>
+    function Delete(id) {
+
+        $.ajax({
+            url: "/blog/delete/" + id,
+            method: "GET",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function Approve(id) {
+
+        $.ajax({
+            url: "/blog/approve/" + id,
+            method: "GET",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>
+}

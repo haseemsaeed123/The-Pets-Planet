@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Template/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Template/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Template/css/flexslider.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Template/css/shop.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Template/css/jquery-ui1.css">
+    <link href="~/Template/css/style.css" rel='stylesheet' type='text/css' media="all">
+    <link href="//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="~/Template/css/sidebar.css" rel="stylesheet" />
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137151498-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137151498-1');
+    </script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                @if ((Session["Role"]).ToString() == "Admin")
+                {
+                    <h3>Admin Portal</h3>
+                }
+                else
+                {
+                    <h3>Vendor Portal</h3>
+                }
+            </div>
+            <ul class="list-unstyled components">
+                @if ((Session["Role"]).ToString() == "Admin")
+                {
+                    <li>
+                        <a href="#prosubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle active">Products</a>
+                        <ul class="collapse list-unstyled" id="prosubmenu">
+                            <li class="active">
+                                <a href="~/product/new">New Products</a>
+                            </li>
+                            <li>
+                                <a href="~/product/approved">Approved Products</a>
+                            </li>
+                            <li>
+                                <a href="~/product/rejected">Rejected Products</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#VendorSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Vendor</a>
+                        <ul class="collapse list-unstyled" id="VendorSubmenu">
+                            <li>
+                                <a href="~/newvendor">New Vendor</a>
+                            </li>
+                            <li>
+                                <a href="~/approvedvendor">Approved Vendor</a>
+                            </li>
+                            <li>
+                                <a href="~/rejectedvendor">Not Approved Vendor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#BlogSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blogs</a>
+                        <ul class="collapse list-unstyled" id="BlogSubmenu">
+                            <li>
+                                <a href="~/blogs/new">New Blogs</a>
+                            </li>
+                            <li>
+                                <a href="~/blogs/approve">Approved Blogs</a>
+                            </li>
+                            <li>
+                                <a href="~/blogs/rejected">Rejected Blogs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/product/addnew">Add Product Category</a>
+                    </li>
+                    <li>
+                        <a href="~/createadmin">Create New Admin</a>
+                    </li>
+                    <li>
+                        <a href="https://analytics.google.com/analytics/web/?authuser=0&_ga=2.168738403.331264633.1554167185-230512729.1554167185#/report-home/a137151498w197593047p192392806">Check Analytics</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="~/product/newproduct">Upload Product</a>
+                    </li>
+                    <li class="active">
+                        <a href="~/product/new">New Products</a>
+                    </li>
+                    <li>
+                        <a href="~/product/approved">Approved Products</a>
+                    </li>
+                    <li>
+                        <a href="~/product/rejected">Rejected Products</a>
+                    </li>
+                    <li>
+                        <a href="~/vendororders">Orders</a>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="navbar-toggler" type="button" 
+                            data-toggle="collapse"
+                            data-target="#navbarSupportedContent" 
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false" 
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="~/pet" class="nav-link">Pets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/product" class="nav-link">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/blogs" class="nav-link">Blogs</a>
+                            </li>
+                            <li id="sign_up_btn" class="nav-item">
+                                <a href="~/user/register" class="nav-link">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="login-logout" href="~/login" class="nav-link">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+                @RenderSection("admin",false)
+        </div>
+    </div>
+    @*<section class="footer-section">
+        <div class="social-links-warp">
+            <div class="container">
+                <div class="social-links text-center">
+                    <a href="https://www.facebook.com/The-Pets-Planet-2352666945012489/" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                    <a href="https://www.instagram.com/planetthepets/?hl=en" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                </div>
+                <p class="text-white text-center mt-5">
+                    Copyright ©
+                    <script>document.write(new Date().getFullYear());</script>  Pets Planet All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </p>
+            </div>
+        </div>
+    </section>*@
+</body>
+</html>
+
+
+<script src="~/Template/js/jquery-2.2.3.min.js"></script>
+<script src="~/Template/js/minicart.js"></script>
+<script src="~/Template/js/jquery-ui.js"></script>
+<script src="~/Template/js/imagezoom.js"></script>
+<script src="~/Template/js/easy-responsive-tabs.js"></script>
+<script src="~/Template/js/jquery.flexslider.js"></script>
+<script src="~/Template/js/move-top.js"></script>
+<script src="~/Template/js/easing.js"></script>
+<script src="~/Template/js/jquery.flexisel.js"></script>
+<script src="~/Template/js/responsiveslides.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Template/js/bootstrap.min.js"></script>
+
+@RenderSection("script",false)
+
+<script>
+    $(document).ready(function () {
+        var session_login = "@Session["US_Name"]";
+        if (session_login != "") {
+            $("#login-logout").html("Logout");
+            $("#login-logout").attr("href", "@Url.Action("Logout", "User")");
+            $("#sign_up_btn").html("");
+
+            if ("@Session["Role"]" == "Admin") {
+                $("#sign_up_btn").html("<a id='a-tag' class='nav-link'>Admin Panel</a>");
+                $("#a-tag").attr("href", "@Url.Action("ViewAllProducts", "Product")");
+            }
+            else if ("@Session["Role"]" == "Vendor") {
+                $("#sign_up_btn").html("<a id='a-tag' class='nav-link'>Vendor Panel</a>");
+                $("#a-tag").attr("href", "@Url.Action("ViewAllProducts", "Product")");
+            }
+            else {
+                $("#sign_up_btn").remove();
+            }
+        }
+
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+
+
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+
+    });
+</script>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 900);
+        });
+    });
+</script>
+
+<script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+
+</script>
+
+
+
+
+

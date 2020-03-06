@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29311.281
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FypOnEF", "FypOnEF\FypOnEF.csproj", "{D4478E74-2C2A-4BE2-A342-699A67B0CD21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4478E74-2C2A-4BE2-A342-699A67B0CD21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4478E74-2C2A-4BE2-A342-699A67B0CD21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4478E74-2C2A-4BE2-A342-699A67B0CD21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4478E74-2C2A-4BE2-A342-699A67B0CD21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {090EC8D0-D335-4894-8758-A0D655AEC4B2}
+	EndGlobalSection
+EndGlobal

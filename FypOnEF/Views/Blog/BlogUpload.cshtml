@@ -1,0 +1,78 @@
+﻿@model FypOnEF.ViewModels.Blog.BlogViewModel
+
+@{
+    Layout = "~/Views/Shared/_AllViewLayout.cshtml";
+    ViewBag.Title = "BlogUpload";
+}
+
+@section product{
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="~/index">Home</a>
+                <span>//</span>
+            </li>
+            <li>Write Blog</li>
+        </ul>
+    </div>
+</div>
+<!--Typography-->
+<section class="inner-pages py-5">
+    <div class="container py-xl-5 py-sm-3 ">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Write Blog</h3>
+        <section class="typo-section py-4 border-top border-bottom">
+            @using (Html.BeginForm("NewBlog", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Blog_Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Blog_Title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Blog_Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Blog_WholeBlog, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.Blog_WholeBlog, new { @class = "form-control", @id = "Blog_WholeBlog" })
+                            @Html.ValidationMessageFor(model => model.Blog_WholeBlog, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImageFileBlogger, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="ImageFileBlogger" required title="*Please upload your Image." />
+                            @Html.ValidationMessageFor(model => model.ImageFileBlogger, "", new { @class = "text-danger" })
+                            <p>@TempData["_extension"]</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImageFileForBlog, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="ImageFileForBlog" required title="*Please upload your Blog's Image." />
+                            @Html.ValidationMessageFor(model => model.ImageFileForBlog, "", new { @class = "text-danger" })
+                            <p>@TempData["extension"]</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                            <p>@TempData["ProRegMsg"]</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</section>
+}

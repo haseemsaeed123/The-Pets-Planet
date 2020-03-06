@@ -1,0 +1,347 @@
+﻿@model IList<FypOnEF.ViewModels.Product.CartViewModel>
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_AllViewLayout.cshtml";
+}
+
+@section product{
+    <div class="using-border py-3">
+        <div class="inner_breadcrumb  ml-4">
+            <ul class="short_ls">
+                <li>
+                    <a href="~/index">Home</a>
+                    <span>/ /</span>
+                </li>
+                <li>Checkout</li>
+            </ul>
+        </div>
+    </div>
+    <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
+        <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            <div class="shop_inner_inf">
+                <div class="privacy about">
+                    <h3>Chec<span>kout</span></h3>
+                    <div class="checkout-right" id="divid">
+                        @if (Model == null)
+                        {
+                            <h4 class="count">Your shopping cart contains: <span class="itemcount">0</span></h4>
+                        }
+                        else
+                        {
+                            <h4 class="count">Your shopping cart contains: <span class="itemcount">@Model.Count()</span></h4>
+                        }                        
+                        <table class="timetable_sub">
+                            <thead>
+                                <tr>
+                                    <th>SL No.</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int i = 1;
+                                    if (Model != null)
+                                    {
+                                        foreach (var currentitem in Model.ToList())
+                                        {
+                                            <tr class="rem_@currentitem.PC3_Id" id="rem_@currentitem.PC3_Id">
+                                                <td class="invert">@i</td>
+                                                <td class="invert-image" style="max-width:300px;"><a href="#"><img src="@Url.Content(currentitem.ProImg_Path)" alt=" " width="121" height="141" class="img-responsive"></a></td>
+                                                <td class="invert">
+                                                    <div class="quantity">
+                                                        <div class="quantity-select">
+                                                            <div class="entry value-minus">&nbsp;</div>
+                                                            <div class="entry value qty">@currentitem.OD_ProductQty</div>
+                                                            <div class="entry value-plus active">&nbsp;</div>
+                                                            <input type="hidden" id="currentItemId" value="@currentitem.PC3_Id"/>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="invert">@currentitem.PC3_Name</td>
+                                                <td class="invert price">@currentitem.Vendor_Price</td>
+                                                <td class="invert">
+                                                    <div class="rem">
+                                                        <div class="close1"  onclick="generic(@currentitem.PC3_Id,'Remove')"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            i++;
+                                            
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                    Session["Mysess"] = Model;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="checkout-left">
+                        <div class="col-md-4 checkout-left-basket">
+                            <h4 onclick="goBack()">Continue to basket</h4>
+                            <ul>
+                                @if (Model != null)
+                                {
+                                    foreach (var currentitem in Model.ToList())
+                                    {
+                                        <li id="checkItemId_@currentitem.PC3_Id">@currentitem.PC3_Name<i>-</i> 
+                                        <span class="eachitemtotalprice_@currentitem.Vendor_Price">@(currentitem.OD_ProductQty * currentitem.Vendor_Price)</span>
+                                        </li>
+                                    }
+                                    <li class="checkout-border-total">Total <i>-</i> <span class="totalbill">@Model.Sum(x => x.OD_ProductQty * x.Vendor_Price)</span></li>
+                                }
+                                else
+                                {
+                                    <li class="checkout-border-total">Total <i>-</i> <span class="totalbill">0</span></li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="col-md-8 address_form">
+                            <h4>Add a new Details</h4>
+                            <form method="post" class="creditly-card-form agileinfo_form">
+                                <section class="creditly-wrapper wrapper">
+                                    <div class="information-wrapper">
+                                        <div class="first-row form-group">
+                                            <div class="controls">
+                                                <label class="control-label">Full name: </label>
+                                                <input class="form-control" id="fullname" type="text" name="username" placeholder="Full name"/>
+                                            </div>
+                                            <div class="controls">
+                                                <label class="control-label">Phone 1: </label>
+                                                <input class="form-control" id="phone1" type="text" name="userphone1" placeholder="Mobile Number" pattern="[0][3][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="Please enter the phone no in 03xxxxxxxxx format (e.g. 03001234567)"/>
+                                            </div>
+                                            <div class="controls">
+                                                <label class="control-label">Phone 2: </label>
+                                                <input class="form-control" id="phone2" type="text"  name="userphone2" placeholder="Mobile Number" pattern="[0][3][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="Please enter the phone no in 03xxxxxxxxx format (e.g. 03001234567)"/>
+                                            </div>
+                                            <div class="controls">
+                                                <label class="control-label">Address: </label>
+                                                <input class="form-control" id="address" type="text"  name="useraddress" placeholder="Delivery Address"/>
+                                            </div>
+                                        </div>
+                                        <button class="submit check_out" type="submit" onclick="Order()">Delivery to this Address</button>
+                                        @*<button type="submit"  onclick="Order()" class="submit check_out "></button>*@
+                                    </div>
+                                </section>
+                            </form>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- //top products -->
+        </div>
+    </section>
+
+}
+
+@section script{
+
+<script>
+    function goBack() {
+      window.history.back();
+    }
+</script>
+<script>
+
+    function Order()
+    {
+        var phoneval = /^[0][1-9]\d{9}$|^[1-9]\d{9}$/;
+        var fullname = $('#fullname').val();
+        var phone1 = $('#phone1').val();
+        var phone2 = $('#phone2').val();
+        var address = $('#address').val();
+        if (fullname == '') {
+            $('#fullname').prop('required', true);
+        }
+        else if(phone1 == '')
+        {
+            $('#phone1').prop('required', true);
+        }
+        else if (phone2 == '') {
+            $('#phone2').prop('required', true);
+        }
+        else if (address == '') {
+            $('#address').prop('required', true);
+        }
+        else if(!phoneval.test(phone1)){}
+        else if (!phoneval.test(phone2)){}
+        else
+        {
+
+            var formData = {
+                'TotalPrice': $('.totalbill').text(),
+                'Totalitem': $('.itemcount').text(),
+                'US_Name': $('input[name=username]').val(),
+                'Phone1': $('input[name=userphone1]').val(),
+                'Phone2': $('input[name=userphone2]').val(),
+                'DeliveryAddress': $('input[name=useraddress]').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: "/neworder",
+                dataType: 'json',
+                data: formData,
+                success: function (json) {
+                    if (json.alert) {
+                        alert("Please add product to your cart !")
+                    }
+                    else {
+                        alert(json)
+                        window.location.href = "/"
+                    }
+                },
+            });
+        }
+
+    }
+
+    
+    $('.value-plus').on('click', function () {
+        var divUpd = $(this).parent().find('.value'),
+                newVal = parseInt(divUpd.text(), 10) + 1;
+        divUpd.text(newVal);
+        var idUpdate = $(this).parent().find('#currentItemId');
+        var currentItemId = $(idUpdate).val();
+            
+            Myfunc();
+            generic(currentItemId,'Qty');
+        });
+    
+    $('.value-minus').on('click', function () {
+            var divUpd = $(this).parent().find('.value'),
+                newVal = parseInt(divUpd.text(), 10) - 1;
+            if (newVal >= 1) {
+                divUpd.text(newVal);
+            var idUpdate = $(this).parent().find('#currentItemId');
+            var currentItemId = $(idUpdate).val();
+                Myfunc();
+                generic(currentItemId, 'Qty');
+            }
+        });
+    
+
+    function Myfunc() {        
+        var totalamount = 0;
+        var itemqty;
+        var itemprice;
+        if ($('.timetable_sub tbody tr').size() == 0) {
+            $('.totalbill').text(0);
+        }
+        else {
+            $(".timetable_sub tbody tr").each(function () {
+                var tr = $(this).closest("tr");
+                var qty = $(tr).find("td").find(".qty").text();
+                var price = $(tr).find(".price").text();
+                itemprice = qty * price;
+                totalamount = totalamount + itemprice;
+                $('.eachitemtotalprice_' + price).text(itemprice);
+                $('.totalbill').text(totalamount);
+            });           
+        }        
+    }
+
+    function generic(id, action)
+    {
+        var obj = {};
+
+        if (action == "Qty" || action == "Checkout")
+        {
+            var kk = '#rem_' + id;
+            obj.OD_ProductQty = parseInt($(kk).find("td").find(".qty").text());
+        }
+        else if (action == "Remove") {
+            var kk = '#rem_' + id;
+            var cc = '#checkItemId_' + id;
+            $(kk).remove();
+            $(cc).remove();
+            var itemcount = $('.itemcount').text();
+            itemcount = itemcount - 1;
+            $('.itemcount').text(itemcount);
+            Myfunc();
+        }
+                
+        obj.PC3_Id = id;
+        obj.action = action;
+        obj.url = "/product/addcart";
+        obj.type = "POST";
+        obj.datatype = "json";
+        obj.data = JSON.stringify({ b: obj });
+        obj.contentType = "application/json";
+        obj.success = function (json) {
+            if (json.isRedirect) {
+                window.location.href = json.redirectUrl;
+            }
+        };
+        obj.error = function (response) {
+            alert("error")
+        };
+        $.ajax(obj);
+
+    }
+</script>
+
+
+@*<script>
+    
+    $(".sendorder").click(function (e) {
+        e.preventDefault();
+
+      
+
+        //debugger;
+
+        var fullname = $('#fullname').val();
+        if(fullname == '')
+        {
+            $('#fullname').prop('required',true);
+
+
+           // var x = document.getElementById("fullname").required;
+         
+
+            $("[name='username']").attr("required", true);
+            //alert('Please enter your Full Name');
+            //$('#fullname').focus(); //The focus function will move the cursor to "fullname" field
+        }
+
+        else{
+            var formData = {
+                'TotalPrice' : $('.totalbill').text(),
+                'Totalitem': $('.itemcount').text(),
+                'US_Name': $('input[name=username]').val(),
+                'Phone1': $('input[name=userphone1]').val(),
+                'Phone2': $('input[name=userphone2]').val(),
+                'DeliveryAddress': $('input[name=useraddress]').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: "/order",
+                dataType: 'json',
+                data: formData,
+                success: function (run) {
+                    if (run) {
+                        console.log("Ok");
+                    }
+                    else {
+                        console.log("Error");
+                    }
+                },
+            }); 
+
+        }
+
+        
+       
+    });
+
+</script>*@
+
+}

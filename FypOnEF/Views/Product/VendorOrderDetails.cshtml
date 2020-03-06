@@ -1,0 +1,114 @@
+﻿@model IEnumerable<FypOnEF.ViewModels.Product.CartViewModel>
+
+@{
+    ViewBag.Title = "VendorOrderDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section admin{
+<section class="inner-pages py-5">
+    <div class="container py-xl-5 py-sm-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Order Details</h3>
+        <section class="typo-section py-4 border-top border-bottom">
+            <div class="container col-12">
+                <div class="row">
+                    <div class="col-xs-8 col-md-12 departs">
+                        <form>
+                            <div class="form-group col-md-12">
+                                @foreach (var items in Model)
+                                {
+                                    <div class="form-group col-md-6" style="float:left">
+                                        <div class="form-group row mt-4">
+                                            <label class="col-md-4 col-form-label">Customer Name:</label>
+                                            <div class="col-md-8 col-form-label">
+                                                <label>@items.US_Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-4">
+                                            <label class="col-md-4 col-form-label">Phone 1: </label>
+                                            <div class="col-md-8 col-form-label">
+                                                <label>@items.Phone1</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-4">
+                                            <label class="col-md-4 col-form-label">Phone 2: </label>
+                                            <div class="col-md-8 col-form-label">
+                                                <label>@items.Phone2</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-4">
+                                            <label class="col-md-4 col-form-label">Delivery Address: </label>
+                                            <div class="col-md-8 col-form-label">
+                                                <label>@items.DeliveryAddress</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6" style="float:left">
+                                        <div class="form-group row mt-4">
+                                            <label class="col-md-4 col-form-label">Total Amount:</label>
+                                            <div class="col-md-8 col-form-label">
+                                                <label>@Model.Sum(x => x.TotalItemPrice)</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-4">
+                                            <label class="col-md-4 col-form-label">Total Items: </label>
+                                            <div class="col-md-8 col-form-label">
+                                                <label>@Model.Count()</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-4">
+                                            <label class="col-md-4 col-form-label">Order Status: </label>
+                                            <div class="col-md-8 col-form-label">
+                                                <label>@items.OrderStatus</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    break;
+                                }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container col-12">
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3" style="margin-top:50px">Order Items</h3>
+            <section class="typo-section py-4 border-top border-bottom">
+                <table class="table table-responsive-lg table-responsive-md text-center table-hover table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Unit Price</th>
+                            <th>Quantity Ordered</th>
+                            <th>Total Item Price</th>
+
+                        </tr>
+                    </thead>
+                    @{
+                        int i = 1;
+                        foreach (var data in Model)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td class="invert-image" style="max-width: 250px;min-width: 200px;"><img src="@Url.Content(data.ProImg_Path)" alt=" " width="121" height="141" class="img-responsive"></td>
+                                <td>@data.PC3_Name</td>
+                                <td>@data.VP_Desc</td>
+                                <td>@data.Vendor_Price</td>
+                                <td>@data.QuantityOrder</td>
+                                <td>@data.TotalItemPrice</td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                </table>
+            </section>
+        </div>
+
+    </div>
+</section>
+
+    }
+

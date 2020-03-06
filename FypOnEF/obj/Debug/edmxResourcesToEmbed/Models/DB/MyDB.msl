@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PetsPlanetDBModelStoreContainer" CdmEntityContainer="PetsPlanetDBContext">
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+          <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+          <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+          <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+          <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+          <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+          <ScalarProperty Name="Blogger_PictureName" ColumnName="Blogger_PictureName" />
+          <ScalarProperty Name="Blog_PictureName" ColumnName="Blog_PictureName" />
+          <ScalarProperty Name="Blog_Status" ColumnName="Blog_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+          <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Totalitem" ColumnName="Totalitem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="OrderitemID" ColumnName="OrderitemID" />
+          <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+          <ScalarProperty Name="VPC_Id" ColumnName="VPC_Id" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="QuantityOrder" ColumnName="QuantityOrder" />
+          <ScalarProperty Name="TotalItemPrice" ColumnName="TotalItemPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets_Warehouses">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_Warehouse">
+        <MappingFragment StoreEntitySet="Pets Warehouse">
+          <ScalarProperty Name="PetsWarehouse_Id" ColumnName="PetsWarehouse_Id" />
+          <ScalarProperty Name="Descrption" ColumnName="Descrption" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Pets_Status" ColumnName="Pets_Status" />
+          <ScalarProperty Name="ApprovedPets" ColumnName="ApprovedPets" />
+          <ScalarProperty Name="NotApprovedPets" ColumnName="NotApprovedPets" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets_C1">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_C1">
+        <MappingFragment StoreEntitySet="Pets_C1">
+          <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+          <ScalarProperty Name="PetsC1_Name" ColumnName="PetsC1_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets_C2">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_C2">
+        <MappingFragment StoreEntitySet="Pets_C2">
+          <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+          <ScalarProperty Name="PetsC2_Name" ColumnName="PetsC2_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets_C3">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_C3">
+        <MappingFragment StoreEntitySet="Pets_C3">
+          <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+          <ScalarProperty Name="PetsC3_Name" ColumnName="PetsC3_Name" />
+          <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+          <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets_Image">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_Image">
+        <MappingFragment StoreEntitySet="Pets_Image">
+          <ScalarProperty Name="PetsImage_Id" ColumnName="PetsImage_Id" />
+          <ScalarProperty Name="PetsImage_Path" ColumnName="PetsImage_Path" />
+          <ScalarProperty Name="PetsImage_Name" ColumnName="PetsImage_Name" />
+          <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets_Inventory">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_Inventory">
+        <MappingFragment StoreEntitySet="Pets_Inventory">
+          <ScalarProperty Name="PetInventory_Id" ColumnName="PetInventory_Id" />
+          <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+          <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+          <ScalarProperty Name="PetsWarehouse_Id" ColumnName="PetsWarehouse_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_C1">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_C1">
+        <MappingFragment StoreEntitySet="Product_C1">
+          <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_C2">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_C2">
+        <MappingFragment StoreEntitySet="Product_C2">
+          <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_C3">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_C3">
+        <MappingFragment StoreEntitySet="Product_C3">
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+          <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+          <ScalarProperty Name="ProImg_Id" ColumnName="ProImg_Id" />
+          <ScalarProperty Name="Pro_Views" ColumnName="Pro_Views" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Image">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_Image">
+        <MappingFragment StoreEntitySet="Product_Image">
+          <ScalarProperty Name="ProImg_Id" ColumnName="ProImg_Id" />
+          <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Inventory">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_Inventory">
+        <MappingFragment StoreEntitySet="Product_Inventory">
+          <ScalarProperty Name="PI_Id" ColumnName="PI_Id" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+          <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+          <ScalarProperty Name="PI_OutOfStock" ColumnName="PI_OutOfStock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Inverntory_Sales">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_Inverntory_Sales">
+        <MappingFragment StoreEntitySet="Product-Inverntory Sales">
+          <ScalarProperty Name="PIS_Id" ColumnName="PIS_Id" />
+          <ScalarProperty Name="VP_Id" ColumnName="VP_Id" />
+          <ScalarProperty Name="PIS_SalesPrice" ColumnName="PIS_SalesPrice" />
+          <ScalarProperty Name="PIS_CompanyPrice" ColumnName="PIS_CompanyPrice" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Info">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.User_Info">
+        <MappingFragment StoreEntitySet="User_Info">
+          <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="US_Phone" ColumnName="US_Phone" />
+          <ScalarProperty Name="US_Address" ColumnName="US_Address" />
+          <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+          <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+          <ScalarProperty Name="US_Password" ColumnName="US_Password" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="US_ConfirmCode" ColumnName="US_ConfirmCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Type">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.User_Type">
+        <MappingFragment StoreEntitySet="User_Type">
+          <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+          <ScalarProperty Name="U_Type" ColumnName="U_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendor_Products">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Product">
+        <MappingFragment StoreEntitySet="Vendor Product">
+          <ScalarProperty Name="VP_Id" ColumnName="VP_Id" />
+          <ScalarProperty Name="VP_ApproveProduct" ColumnName="VP_ApproveProduct" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+          <ScalarProperty Name="PI_Id" ColumnName="PI_Id" />
+          <ScalarProperty Name="VP_NotApproveProduct" ColumnName="VP_NotApproveProduct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendor_Product_Qties">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Product_Qty">
+        <MappingFragment StoreEntitySet="Vendor Product Qty">
+          <ScalarProperty Name="VPQ_Id" ColumnName="VPQ_Id" />
+          <ScalarProperty Name="VP_Id" ColumnName="VP_Id" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="VPQ_Status" ColumnName="VPQ_Status" />
+          <ScalarProperty Name="VPQ_RemainingQty" ColumnName="VPQ_RemainingQty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendor_Image">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Image">
+        <MappingFragment StoreEntitySet="Vendor_Image">
+          <ScalarProperty Name="VendorImage_Id" ColumnName="VendorImage_Id" />
+          <ScalarProperty Name="VendorImage_Name" ColumnName="VendorImage_Name" />
+          <ScalarProperty Name="VendorImage_ImagePath" ColumnName="VendorImage_ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendor_Info">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Info">
+        <MappingFragment StoreEntitySet="Vendor_Info">
+          <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+          <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+          <ScalarProperty Name="VI_Province" ColumnName="VI_Province" />
+          <ScalarProperty Name="VI_City" ColumnName="VI_City" />
+          <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+          <ScalarProperty Name="VI_Approved" ColumnName="VI_Approved" />
+          <ScalarProperty Name="VI_NotApproved" ColumnName="VI_NotApproved" />
+          <ScalarProperty Name="VendorImage_Id" ColumnName="VendorImage_Id" />
+          <ScalarProperty Name="VI_Commission" ColumnName="VI_Commission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendor_Product_Cost">
+      <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Product_Cost">
+        <MappingFragment StoreEntitySet="Vendor-Product Cost">
+          <ScalarProperty Name="VPC_Id" ColumnName="VPC_Id" />
+          <ScalarProperty Name="VPQ_Id" ColumnName="VPQ_Id" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddnewProductCat_1" FunctionName="PetsPlanetDBModel.Store.AddnewProductCat_1" />
+    <FunctionImportMapping FunctionImportName="AddnewProductCat_2" FunctionName="PetsPlanetDBModel.Store.AddnewProductCat_2" />
+    <FunctionImportMapping FunctionImportName="AllBlogView" FunctionName="PetsPlanetDBModel.Store.AllBlogView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.AllBlogView_Result">
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+          <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+          <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+          <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+          <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ApproveBlog" FunctionName="PetsPlanetDBModel.Store.ApproveBlog" />
+    <FunctionImportMapping FunctionImportName="ApproveProduct" FunctionName="PetsPlanetDBModel.Store.ApproveProduct" />
+    <FunctionImportMapping FunctionImportName="ApprovVendor" FunctionName="PetsPlanetDBModel.Store.ApprovVendor" />
+    <FunctionImportMapping FunctionImportName="BlogDetailsGet" FunctionName="PetsPlanetDBModel.Store.BlogDetailsGet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.BlogDetailsGet_Result">
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+          <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+          <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+          <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+          <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BlogDisplay" FunctionName="PetsPlanetDBModel.Store.BlogDisplay">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.BlogDisplay_Result">
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+          <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+          <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+          <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+          <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BlogUploading" FunctionName="PetsPlanetDBModel.Store.BlogUploading" />
+    <FunctionImportMapping FunctionImportName="CheckUserIsAdmin" FunctionName="PetsPlanetDBModel.Store.CheckUserIsAdmin" />
+    <FunctionImportMapping FunctionImportName="CheckUserIsBuyerSeller" FunctionName="PetsPlanetDBModel.Store.CheckUserIsBuyerSeller" />
+    <FunctionImportMapping FunctionImportName="CheckUserIsVendor" FunctionName="PetsPlanetDBModel.Store.CheckUserIsVendor" />
+    <FunctionImportMapping FunctionImportName="DeleteBlog" FunctionName="PetsPlanetDBModel.Store.DeleteBlog" />
+    <FunctionImportMapping FunctionImportName="DeleteVendor" FunctionName="PetsPlanetDBModel.Store.DeleteVendor" />
+    <FunctionImportMapping FunctionImportName="DeleteVendorProduct" FunctionName="PetsPlanetDBModel.Store.DeleteVendorProduct" />
+    <FunctionImportMapping FunctionImportName="EmailVerification" FunctionName="PetsPlanetDBModel.Store.EmailVerification" />
+    <FunctionImportMapping FunctionImportName="GetApproveBlogs" FunctionName="PetsPlanetDBModel.Store.GetApproveBlogs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetApproveBlogs_Result">
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+          <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+          <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+          <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+          <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetApproveVendor" FunctionName="PetsPlanetDBModel.Store.GetApproveVendor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetApproveVendor_Result">
+          <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+          <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetApproveVendorProducts" FunctionName="PetsPlanetDBModel.Store.GetApproveVendorProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetApproveVendorProducts_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomRoles" FunctionName="PetsPlanetDBModel.Store.GetCustomRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetCustomRoles_Result">
+          <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+          <ScalarProperty Name="U_Type" ColumnName="U_Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNewBlogs" FunctionName="PetsPlanetDBModel.Store.GetNewBlogs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNewBlogs_Result">
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+          <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+          <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+          <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+          <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNewProducts" FunctionName="PetsPlanetDBModel.Store.GetNewProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNewProducts_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNewVendor" FunctionName="PetsPlanetDBModel.Store.GetNewVendor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNewVendor_Result">
+          <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+          <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNotApproveBlogs" FunctionName="PetsPlanetDBModel.Store.GetNotApproveBlogs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNotApproveBlogs_Result">
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+          <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+          <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+          <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+          <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNotApproveVendor" FunctionName="PetsPlanetDBModel.Store.GetNotApproveVendor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNotApproveVendor_Result">
+          <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+          <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNotApproveVendorProducts" FunctionName="PetsPlanetDBModel.Store.GetNotApproveVendorProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNotApproveVendorProducts_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetProductCart" FunctionName="PetsPlanetDBModel.Store.GetProductCart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetProductCart_Result">
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="NotApproveBlog" FunctionName="PetsPlanetDBModel.Store.NotApproveBlog" />
+    <FunctionImportMapping FunctionImportName="NotApproveProduct" FunctionName="PetsPlanetDBModel.Store.NotApproveProduct" />
+    <FunctionImportMapping FunctionImportName="NotApprovVendor" FunctionName="PetsPlanetDBModel.Store.NotApprovVendor" />
+    <FunctionImportMapping FunctionImportName="Order" FunctionName="PetsPlanetDBModel.Store.Order" />
+    <FunctionImportMapping FunctionImportName="PetsInfo" FunctionName="PetsPlanetDBModel.Store.PetsInfo" />
+    <FunctionImportMapping FunctionImportName="PetsPanelView" FunctionName="PetsPlanetDBModel.Store.PetsPanelView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.PetsPanelView_Result">
+          <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+          <ScalarProperty Name="PetsC1_Name" ColumnName="PetsC1_Name" />
+          <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+          <ScalarProperty Name="PetsC2_Name" ColumnName="PetsC2_Name" />
+          <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+          <ScalarProperty Name="PetsC3_Name" ColumnName="PetsC3_Name" />
+          <ScalarProperty Name="Descrption" ColumnName="Descrption" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Pets_Status" ColumnName="Pets_Status" />
+          <ScalarProperty Name="PetsImage_Path" ColumnName="PetsImage_Path" />
+          <ScalarProperty Name="PetsImage_Name" ColumnName="PetsImage_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductDetailsGet" FunctionName="PetsPlanetDBModel.Store.ProductDetailsGet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.ProductDetailsGet_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+          <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+          <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+          <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+          <ScalarProperty Name="ProImg_Id" ColumnName="ProImg_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductInfo" FunctionName="PetsPlanetDBModel.Store.ProductInfo" />
+    <FunctionImportMapping FunctionImportName="ProductPanelView" FunctionName="PetsPlanetDBModel.Store.ProductPanelView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.ProductPanelView_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+          <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+          <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+          <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ProductSearch" FunctionName="PetsPlanetDBModel.Store.ProductSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.ProductSearch_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+          <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+          <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+          <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RegisterAdmin" FunctionName="PetsPlanetDBModel.Store.RegisterAdmin" />
+    <FunctionImportMapping FunctionImportName="RegisterBuyerSeller" FunctionName="PetsPlanetDBModel.Store.RegisterBuyerSeller" />
+    <FunctionImportMapping FunctionImportName="RegisterVendor" FunctionName="PetsPlanetDBModel.Store.RegisterVendor" />
+    <FunctionImportMapping FunctionImportName="SearchProduct" FunctionName="PetsPlanetDBModel.Store.SearchProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.SearchProduct_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+          <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+          <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+          <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectedPetDetails" FunctionName="PetsPlanetDBModel.Store.SelectedPetDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.SelectedPetDetails_Result">
+          <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+          <ScalarProperty Name="PetsC1_Name" ColumnName="PetsC1_Name" />
+          <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+          <ScalarProperty Name="PetsC2_Name" ColumnName="PetsC2_Name" />
+          <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+          <ScalarProperty Name="PetsC3_Name" ColumnName="PetsC3_Name" />
+          <ScalarProperty Name="Descrption" ColumnName="Descrption" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Pets_Status" ColumnName="Pets_Status" />
+          <ScalarProperty Name="PetsImage_Path" ColumnName="PetsImage_Path" />
+          <ScalarProperty Name="PetsImage_Name" ColumnName="PetsImage_Name" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="US_Phone" ColumnName="US_Phone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectedProductDeatils" FunctionName="PetsPlanetDBModel.Store.SelectedProductDeatils">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.SelectedProductDeatils_Result">
+          <ScalarProperty Name="Pro_Views" ColumnName="Pro_Views" />
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+          <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+          <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+          <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductInfo" FunctionName="PetsPlanetDBModel.Store.SelectProductInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.SelectProductInfo_Result">
+          <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+          <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+          <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+          <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+          <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PetsPlanetDBModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PetsPlanetDBModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PetsPlanetDBModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PetsPlanetDBModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PetsPlanetDBModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PetsPlanetDBModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PetsPlanetDBModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="UpdateProduct" FunctionName="PetsPlanetDBModel.Store.UpdateProduct" />
+    <FunctionImportMapping FunctionImportName="UserLogin" FunctionName="PetsPlanetDBModel.Store.UserLogin" />
+    <FunctionImportMapping FunctionImportName="UserPetsEntry" FunctionName="PetsPlanetDBModel.Store.UserPetsEntry" />
+    <FunctionImportMapping FunctionImportName="VendorCommission" FunctionName="PetsPlanetDBModel.Store.VendorCommission" />
+    <FunctionImportMapping FunctionImportName="VendorDetails" FunctionName="PetsPlanetDBModel.Store.VendorDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.VendorDetails_Result">
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="US_Phone" ColumnName="US_Phone" />
+          <ScalarProperty Name="US_Address" ColumnName="US_Address" />
+          <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+          <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+          <ScalarProperty Name="VI_Province" ColumnName="VI_Province" />
+          <ScalarProperty Name="VI_City" ColumnName="VI_City" />
+          <ScalarProperty Name="VendorImage_Id" ColumnName="VendorImage_Id" />
+          <ScalarProperty Name="VendorImage_ImagePath" ColumnName="VendorImage_ImagePath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VendorProductEntry" FunctionName="PetsPlanetDBModel.Store.VendorProductEntry" />
+    <FunctionImportMapping FunctionImportName="GetCustomerDistinctOrders" FunctionName="PetsPlanetDBModel.Store.GetCustomerDistinctOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetCustomerDistinctOrders_Result">
+          <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserOrders" FunctionName="PetsPlanetDBModel.Store.GetUserOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetUserOrders_Result">
+          <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+          <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Totalitem" ColumnName="Totalitem" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="QuantityOrder" ColumnName="QuantityOrder" />
+          <ScalarProperty Name="TotalItemPrice" ColumnName="TotalItemPrice" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VendorOrders" FunctionName="PetsPlanetDBModel.Store.VendorOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.VendorOrders_Result">
+          <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VendorOrderDetails" FunctionName="PetsPlanetDBModel.Store.VendorOrderDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PetsPlanetDBModel.VendorOrderDetails_Result">
+          <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+          <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Totalitem" ColumnName="Totalitem" />
+          <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+          <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="QuantityOrder" ColumnName="QuantityOrder" />
+          <ScalarProperty Name="TotalItemPrice" ColumnName="TotalItemPrice" />
+          <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

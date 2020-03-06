@@ -1,0 +1,88 @@
+﻿@model IEnumerable<FypOnEF.ViewModels.Product.ProductCategoryViewModel>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "GetAdminApprovedProduct";
+}
+
+@section admin{
+    <div class="container col-12">
+        <table class="table table-responsive-lg table-responsive-md text-center table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Product Of</th>
+                    <th>Category</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Company Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            @{
+                int j = 1;
+
+                foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@j</td>
+                        <td>@data.PC1_Name</td>
+                        <td>@data.PC2_Name</td>
+                        <td>@data.PC3_Name</td>
+                        <td>@data.VPQ_Qty</td>
+                        <td>@data.Vendor_Price</td>
+                        <td>@data.Company_Price</td>
+                        <td>
+                            <a role="button" class="btn btn-outline-dark" href="@Url.Action("ProductDetails", "Product", new { @id = data.PC3_Id })">Details</a>
+                            @if (ViewBag.adminCheck != 1)
+                            {
+                                <a role="button" class="btn btn-outline-dark" href="@Url.Action("EditProductGet", "Product", new { @id = data.PC3_Id })">Edit</a>
+                                <a role="button" class="btn btn-outline-dark" onclick="Delete(@data.PC3_Id)">Delete</a>
+                            }
+                            @if (ViewBag.adminCheck == 1)
+                            {
+                                <a role="button" class="btn btn-outline-dark" onclick="Reject(@data.PC3_Id)">Reject</a>
+                            }
+                        </td>
+                    </tr>
+                    j++;
+                }
+            }
+        </table>
+    </div>
+}
+
+
+@section script{
+    <script>
+        function Delete(id) {
+            $.ajax({
+                url: "/product/delete/" + id,
+                method: "GET",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        }
+
+        function Reject(id) {
+            $.ajax({
+                url: "/product/reject/" + id,
+                method: "GET",
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        }
+    </script>
+}
+
+
+

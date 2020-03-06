@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="keywords" content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    
+   
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Template/css/checkout.css" rel="stylesheet" />
+    <link href="~/Template/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Template/css/flexslider.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Template/css/shop.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Template/css/jquery-ui1.css">
+    <link href="~/Template/css/style.css" rel='stylesheet' type='text/css' media="all">
+    <link href="//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="~/Template/css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
+    
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137151498-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137151498-1');
+    </script>
+
+</head>
+<body>
+    <!--headder-->
+    <div class="header-outs" id="home">
+        <div class="header-bar">
+            <div class="container-fluid">
+                <div class="hedder-up row">
+                    <div class="col-lg-3 col-md-3 logo-head">
+                        <h1><a class="navbar-brand" href="~/index">The Pets Planet</a></h1>
+                    </div>
+                    <div class="col-lg-5 col-md-6 search-right">
+                        <form class="form-inline my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" id="searchid" placeholder="Search" style="text-decoration-color:lightsteelblue;">
+                            <button class="btn" onclick="Search()" type="button">Search</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-4 col-md-3 right-side-cart">
+                        <div class="cart-icons">
+                            <ul>
+                                <li class="toyscart toyscart2 cart cart box_1">
+                                    <form action="#" method="post" class="last">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="display" value="1">
+                                        <a>
+                                            <span class="fas fa-cart-arrow-down" onclick="Cart()" data-toggle="modal" data-target="#modalCart"></span>
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a href="~/pet" class="nav-link">Pets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/product" class="nav-link">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/blog" class="nav-link">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/index" class="nav-link">About Us</a>
+                        </li>
+                        <li id="sign_up_btn" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href="~/user/register">Buyer/Seller</a>
+                                <a class="nav-link " href="~/user/venreg">Vendor</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a id="login-logout" href="~/login" class="nav-link">Login</a>
+                        </li>
+                        @if (string.IsNullOrWhiteSpace(Session["US_Name"] as string))
+                        {
+
+                        }
+                        else
+                        {
+                            if ((Session["Role"]).ToString() == "Buyer/Seller")
+                            {
+                                <li class="nav-item">
+                                    <a id="order-tracking" href="~/orders" class="nav-link">Track Order</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- banner -->
+    <div class="inner_page-banner one-img">
+    </div>
+    @RenderSection("product", false)
+    <section class="footer-section">
+        <div class="social-links-warp">
+            <div class="container">
+                <div class="social-links text-center">
+                    <a href="https://www.facebook.com/The-Pets-Planet-2352666945012489/" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                    <a href="https://www.instagram.com/planetthepets/?hl=en" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                </div>
+
+
+                <p class="text-white text-center mt-5">
+                    Copyright ©
+                    <script>document.write(new Date().getFullYear());</script>  Pets Planet All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </p>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal: modalCart -->
+    <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <h6 class="modal-title" id="myModalLabel">Your Shopping cart contains : <span id="itemcount"></span>  items</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+
+                    <table class="table table-hover mytable">
+                        <thead>
+                            <tr>
+                                <th>SL No.</th>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyid">
+
+                        </tbody>
+                    </table>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="container">Total Amount<i>-</i> <span id="totalbill" class="text-md-left"></span></div>
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                    <a class="btn btn-outline-primary" href="/checkout">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: modalCart -->
+
+
+</body>
+</html>
+
+<script src="~/Template/js/jquery-2.2.3.min.js"></script>
+<script src="~/Template/js/minicart.js"></script>
+<script src="~/Template/js/jquery-ui.js"></script>
+<script src="~/Template/js/imagezoom.js"></script>
+<script src="~/Template/js/easy-responsive-tabs.js"></script>
+<script src="~/Template/js/jquery.flexslider.js"></script>
+<script src="~/Template/js/move-top.js"></script>
+<script src="~/Template/js/easing.js"></script>
+<script src="~/Template/js/jquery.flexisel.js"></script>
+<script src="~/Template/js/responsiveslides.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Template/js/imagezoom.js"></script>
+<script src="~/Template/js/easy-responsive-tabs.js"></script>
+<script src="~/Template/js/bootstrap.min.js"></script>
+
+@RenderSection("script",false)
+
+
+<script>
+    function Cart() {
+
+        $.getJSON("/basket",
+        function (json) {
+            $('#itemcount').text(json.length);
+            var tr;
+            $("#tbodyid").empty();
+            var price = 0;
+            for (var i = 0; i < json.length; i++) {
+                var id = json[i].PC3_Id;
+                price += (json[i].Vendor_Price * json[i].OD_ProductQty);
+                tr = $('<tr id=rem_' + json[i].PC3_Id + '/>');
+                tr.append("<td id=checkItemId_" + json[i].PC3_Id + ">" + (i + 1) + "</td>");
+                tr.append("<td>" + json[i].PC3_Name + "</td>");
+                tr.append("<td>" + json[i].OD_ProductQty + "</td>");
+                tr.append("<td>" + json[i].Vendor_Price + "</td>");
+                tr.append("<td class=invert><div class=rem><div class=close1 onclick=genericcart(" + id + ",'Remove')></div></div></td>")
+                $('.mytable').append(tr);
+            }
+            $('#totalbill').text(price);
+        });
+    }
+
+    function genericcart(id, action) {
+        var obj = {};
+        if (action == "Add") {
+            var kk = '#rem_' + id;
+            obj.OD_ProductQty = document.getElementsByClassName("quantity-select")[0].children[1].innerHTML;
+        }
+        else if (action == "Remove") {
+            var kk = '#rem_' + id;
+            var cc = '#checkItemId_' + id;
+            $(kk).remove();
+            $(cc).remove();
+            var itemcount = $('#itemcount').text();
+            itemcount = itemcount - 1;
+            $('#itemcount').text(itemcount);
+        }
+
+        obj.PC3_Id = id;
+        obj.action = action;
+        obj.url = "/product/addcart";
+        obj.type = "POST";
+        obj.datatype = "json";
+        obj.data = JSON.stringify({ b: obj });
+        obj.contentType = "application/json";
+        obj.success = function (json) {
+            if (json.isRedirect) {
+                window.location.href = json.redirectUrl;
+            }
+        };
+        obj.error = function (response) {
+            alert("error")
+        };
+        $.ajax(obj);
+        Cart();
+    }
+</script>
+
+<script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+</script>
+
+<script>
+        $(window).load(function () {
+            $("#slider-range").slider({
+                range: true,
+                min: 0,
+                max: 9000,
+                values: [50, 6000],
+                slide: function (event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+
+        });
+</script>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: $(this.hash).offset().top
+            }, 900);
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+        };
+        $().UItoTop({
+            easingType: 'easeOutQuart'
+        });
+    });
+</script>
+
+<script>
+        // Can also be used with $(document).ready()
+        $(window).load(function () {
+            $('.flexslider1').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+</script>
+
+<script>
+    function Search() {
+        var sea = document.getElementById('searchid').value;
+        window.location.href = "/product/search/" + sea;
+    }
+
+    $(document).ready(function () {
+        var session_login = "@Session["US_Name"]";
+        if (session_login != "")
+        {
+            $("#login-logout").html("Logout");
+            $("#login-logout").attr("href", "@Url.Action("Logout", "User")");
+            $("#sign_up_btn").html("");
+
+            if("@Session["Role"]"== "Admin")
+            {
+                $("#sign_up_btn").html("<a id='a-tag' class='nav-link'>Admin Panel</a>");
+                $("#a-tag").attr("href","@Url.Action("ViewAllProducts", "Product")");
+            }
+            else if("@Session["Role"]" == "Vendor")
+            {
+                $("#sign_up_btn").html("<a id='a-tag' class='nav-link'>Vendor Panel</a>");
+                $("#a-tag").attr("href","@Url.Action("ViewAllProducts", "Product")");
+            }
+            else if("@Session["Role"]" == "Buyer/Seller")
+            {
+                $("#sign_up_btn").html("<a id='a-tag' class='nav-link'>Sell Pet</a>");
+                $("#a-tag").attr("href", "@Url.Action("PetUpload", "Pet")");
+                $("#order-tracking")
+            }
+            else
+            {
+                $("#sign_up_btn").remove();
+            }
+        }
+    });
+</script>
+
+
+
+ 
+
+
+
+
+

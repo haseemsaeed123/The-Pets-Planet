@@ -1,0 +1,69 @@
+﻿@model FypOnEF.ViewModels.User.RegVendorViewModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "VendorDetails";
+}
+
+
+@section admin{
+        <div class="container col-12">
+            <div class="row">
+                <div class="col-xs-8 col-md-7 departs">
+                    <form>
+                        <div class="form-group col-md-12">
+                            <h3>Product Detail</h3>
+                            <div class="form-group row mt-4">
+                                <label class="col-lg-4 col-form-label">Product Of</label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" value="@Model.US_Name">
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-lg-4 col-form-label">Category</label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" value="@Model.US_Phone">
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-lg-4 col-form-label">Product Name</label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" value="@Model.US_Address">
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-lg-4 col-form-label">Description</label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" value="@Model.US_Email">
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-lg-4 col-form-label">Specification</label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" value="@Model.VI_CNIC">
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-lg-4 col-form-label">Quantity</label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" value="@Model.VI_Province">
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-lg-4 col-form-label">Vendor Price</label>
+                                <div class="col-lg-8">
+                                    <input type="text" readonly class="form-control" value="@Model.VI_City">
+                                </div>
+                            </div>
+                            @Html.HiddenFor(m => m.VendorImage_Id)
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5">
+                    <img src="@Url.Content(Model.VendorImage_ImagePath)" alt="cnic" width="350" height="300" style="margin-right:100%" />
+                </div>
+            </div>
+        </div>
+}
+
+
+    

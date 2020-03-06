@@ -1,0 +1,76 @@
+﻿@model  IEnumerable<FypOnEF.ViewModels.User.RegVendorViewModel>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "GetNewVendor";
+}
+
+
+
+@section admin{
+    <div class="container col-12">
+        <table class="table table-responsive-lg table-responsive-md text-center table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>CNIC</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            @{
+
+                int j = 1;
+
+                foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@j</td>
+                        <td>@data.US_Name</td>
+                        <td>@data.US_Email</td>
+                        <td>@data.VI_CNIC</td>
+                        <td>
+                            <a role="button" class="btn btn-outline-dark" href="@Url.Action("VendorDetails", "User", new { @id = data.VI_Id })">Details</a>
+                            <a role="button" class="btn btn-outline-dark" onclick="Approve(@data.VI_Id)">Approve</a>
+                            <a role="button" class="btn btn-outline-dark" onclick="Reject(@data.VI_Id)">Reject</a>
+                        </td>
+                    </tr>
+                    j++;
+                }
+            }
+        </table>
+    </div>
+}
+
+@section script{
+<script>
+    function Approve(id) {
+
+        $.ajax({
+            url: "vendor/approve/" + id,
+            method: "GET",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (data) {
+                alert(data);
+            }
+        })
+    }
+
+    function Reject(id) {
+
+        $.ajax({
+            url: "vendor/reject/" + id,
+            method: "GET",
+            success: function (data) {
+                alert(data);
+            },
+            error: function (data) {
+                alert(data);
+            }
+        })
+    }
+</script>
+}

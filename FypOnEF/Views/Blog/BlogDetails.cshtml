@@ -1,0 +1,59 @@
+﻿@model FypOnEF.ViewModels.Blog.BlogViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "BlogDetails";
+}
+
+@section admin{
+    <div class="container col-12">
+        <div class="row">
+            <div class="col-xs-8 col-md-7 departs">
+                <form>
+                    <div class="form-group col-md-12">
+                        <h3>Blog Details</h3>
+                        <div class="form-group row mt-4">
+                            <label class="col-lg-4 col-form-label">Blogger Name</label>
+                            <div class="col-lg-8">
+                                <input type="text" readonly class="form-control" value="@Model.US_Name">
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label class="col-lg-4 col-form-label">Date Time</label>
+                            <div class="col-lg-8">
+                                <input type="text" readonly class="form-control" value="@Model.Blog_Date">
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label class="col-lg-4 col-form-label">Title</label>
+                            <div class="col-lg-8">
+                                <input type="text" readonly class="form-control" value="@Model.Blog_Title">
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label class="col-lg-4 col-form-label">Blog</label>
+                            <div class="col-lg-8">
+                                <textarea type="text" readonly class="form-control">@Model.Blog_WholeBlog</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <label class="col-lg-4 col-form-label">Blog Picture</label>
+                            <div class="col-lg-8">
+                                <img class="img-fluid" src="@Url.Content(Model.Blog_PicturePath)" alt="cnic" width="350" height="300" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-8 col-md-5 departs">
+                <label class="col-lg-4 col-form-label">Blogger Picture</label>
+                <img class="img-fluid" src="@Url.Content(Model.Blogger_PicturePath)" alt="cnic" width="350" height="300" style="margin-right:100%" />
+            </div>
+        </div>
+    </div>
+}
+        
+
+
+
+    

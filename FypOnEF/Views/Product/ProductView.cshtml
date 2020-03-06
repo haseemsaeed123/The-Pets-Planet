@@ -1,0 +1,93 @@
+﻿@model IEnumerable<FypOnEF.ViewModels.Product.ProductCategoryViewModel>
+
+@{
+    Layout = "~/Views/Shared/_AllViewLayout.cshtml";
+    ViewBag.Title = "ProductView";
+}
+
+
+@section product{
+     <!-- short -->
+<div class="using-border py-3">
+    <div class="inner_breadcrumb  ml-4">
+        <ul class="short_ls">
+            <li>
+                <a href="~/index">Home</a>
+                <span>//</span>
+            </li>
+            <li>Products</li>
+        </ul>
+    </div>
+</div>
+<!-- //short-->
+<h2>@ViewBag.SearchKeyword</h2>
+<section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
+    <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Pets Products</h3>
+        <div class="row">
+            <div class="side-bar col-lg-3">
+                <div class="search-hotel">
+                    <h3 class="agileits-sear-head">Search Here..</h3>
+                    <form action="#" method="post">
+                        <input type="search" placeholder="Product name..." name="search" required="">
+                        <input type="submit" value=" ">
+                    </form>
+                </div>
+
+            </div>
+            <div class="left-ads-display col-lg-9">
+                <div class="row">
+                    @foreach (var album in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6 product-men women_two">
+                            <div class="product-toys-info">
+                                <div class="men-pro-item">
+                                    <div class="men-thumb-item">
+                                        <img src="@Url.Content(album.ProImg_Path)" class="img-thumbnail img-fluid" alt="">
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                <a href="~/product/@album.PC3_Id" class="link-product-add-cart">Quick View</a>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">@album.PC1_Name</span>
+                                    </div>
+                                    <div class="item-info-product">
+                                        <div class="info-product-price">
+                                            <div class="grid_meta" style="float:right;">
+                                                <div class="product_price" style="float:right;">
+                                                    <h4>
+                                                        <a href="~/product/@album.PC3_Id" style="float:right;">Product: @album.PC3_Name</a>
+                                                    </h4>
+                                                    <div class="grid-price mt-2">
+                                                        <span class="money" style="float:right;">Rs: @album.Vendor_Price</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="toys single-item hvr-outline-out">
+                                                <form action="#" method="post">
+                                                    <input type="hidden" name="cmd" value="_cart">
+                                                    <input type="hidden" name="add" value="1">
+                                                    <input type="hidden" name="toys_item" value="@album.PC3_Name">
+                                                    <input type="hidden" name="amount" value="@album.Vendor_Price">
+                                                    @*<button type="submit" class="toys-cart ptoys-cart">
+                                                            <i class="fas fa-cart-plus"></i>
+                                                        </button>*@
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}
+
+
+
+

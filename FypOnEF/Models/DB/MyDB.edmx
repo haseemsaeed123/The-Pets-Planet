@@ -1,0 +1,2723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PetsPlanetDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Blog_Id" />
+          </Key>
+          <Property Name="Blog_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Blog_Title" Type="nvarchar(max)" />
+          <Property Name="Blog_Date" Type="date" />
+          <Property Name="Blogger_PicturePath" Type="nvarchar(max)" />
+          <Property Name="Blog_PicturePath" Type="nvarchar(max)" />
+          <Property Name="Blog_WholeBlog" Type="nvarchar(max)" />
+          <Property Name="US_Id" Type="int" />
+          <Property Name="Blogger_PictureName" Type="nvarchar(max)" />
+          <Property Name="Blog_PictureName" Type="nvarchar(max)" />
+          <Property Name="Blog_Status" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="OD_Id" />
+          </Key>
+          <Property Name="OD_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="US_Id" Type="int" />
+          <Property Name="DeliveryAddress" Type="nvarchar(max)" />
+          <Property Name="Phone1" Type="nchar" MaxLength="20" />
+          <Property Name="Phone2" Type="nchar" MaxLength="20" />
+          <Property Name="TotalPrice" Type="money" />
+          <Property Name="Totalitem" Type="int" />
+          <Property Name="US_Name" Type="varchar(max)" />
+          <Property Name="OrderStatus" Type="varchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="date" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderitemID" />
+          </Key>
+          <Property Name="OrderitemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OD_Id" Type="int" />
+          <Property Name="VPC_Id" Type="int" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="QuantityOrder" Type="int" />
+          <Property Name="TotalItemPrice" Type="money" />
+        </EntityType>
+        <EntityType Name="Pets Warehouse">
+          <Key>
+            <PropertyRef Name="PetsWarehouse_Id" />
+          </Key>
+          <Property Name="PetsWarehouse_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descrption" Type="varchar(max)" Nullable="false" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+          <Property Name="Pets_Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApprovedPets" Type="int" />
+          <Property Name="NotApprovedPets" Type="int" />
+        </EntityType>
+        <EntityType Name="Pets_C1">
+          <Key>
+            <PropertyRef Name="PetsC1_Id" />
+          </Key>
+          <Property Name="PetsC1_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PetsC1_Name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pets_C2">
+          <Key>
+            <PropertyRef Name="PetsC2_Id" />
+          </Key>
+          <Property Name="PetsC2_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PetsC2_Name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pets_C3">
+          <Key>
+            <PropertyRef Name="PetsC3_Id" />
+          </Key>
+          <Property Name="PetsC3_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PetsC3_Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="PetsC2_Id" Type="int" Nullable="false" />
+          <Property Name="PetsC1_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Pets_Image">
+          <Key>
+            <PropertyRef Name="PetsImage_Id" />
+          </Key>
+          <Property Name="PetsImage_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PetsImage_Path" Type="nvarchar(max)" />
+          <Property Name="PetsImage_Name" Type="nvarchar(max)" />
+          <Property Name="PetsC3_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Pets_Inventory">
+          <Key>
+            <PropertyRef Name="PetInventory_Id" />
+          </Key>
+          <Property Name="PetInventory_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PetsC3_Id" Type="int" />
+          <Property Name="US_Id" Type="int" />
+          <Property Name="PetsWarehouse_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_C1">
+          <Key>
+            <PropertyRef Name="PC1_Id" />
+          </Key>
+          <Property Name="PC1_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PC1_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product_C2">
+          <Key>
+            <PropertyRef Name="PC2_Id" />
+          </Key>
+          <Property Name="PC2_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PC2_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PetsC1_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_C3">
+          <Key>
+            <PropertyRef Name="PC3_Id" />
+          </Key>
+          <Property Name="PC3_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PC3_Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="PC2_Id" Type="int" />
+          <Property Name="PC1_Id" Type="int" />
+          <Property Name="ProImg_Id" Type="int" />
+          <Property Name="Pro_Views" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_Image">
+          <Key>
+            <PropertyRef Name="ProImg_Id" />
+          </Key>
+          <Property Name="ProImg_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProImg_Name" Type="nvarchar(max)" />
+          <Property Name="ProImg_Path" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Product_Inventory">
+          <Key>
+            <PropertyRef Name="PI_Id" />
+          </Key>
+          <Property Name="PI_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PC3_Id" Type="int" />
+          <Property Name="VI_Id" Type="int" />
+          <Property Name="PI_OutOfStock" Type="int" />
+        </EntityType>
+        <EntityType Name="Product-Inverntory Sales">
+          <Key>
+            <PropertyRef Name="PIS_Id" />
+          </Key>
+          <Property Name="PIS_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VP_Id" Type="int" Nullable="false" />
+          <Property Name="PIS_SalesPrice" Type="money" Nullable="false" />
+          <Property Name="PIS_CompanyPrice" Type="money" Nullable="false" />
+          <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="FromDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User_Info">
+          <Key>
+            <PropertyRef Name="US_Id" />
+          </Key>
+          <Property Name="US_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="US_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="US_Phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="US_Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="US_Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="U_Id" Type="int" />
+          <Property Name="US_Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsValid" Type="int" />
+          <Property Name="US_ConfirmCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User_Type">
+          <Key>
+            <PropertyRef Name="U_Id" />
+          </Key>
+          <Property Name="U_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="U_Type" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendor Product">
+          <Key>
+            <PropertyRef Name="VP_Id" />
+          </Key>
+          <Property Name="VP_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VP_ApproveProduct" Type="int" />
+          <Property Name="VP_Desc" Type="varchar(max)" />
+          <Property Name="VP_Specs" Type="varchar(max)" />
+          <Property Name="PI_Id" Type="int" />
+          <Property Name="VP_NotApproveProduct" Type="int" />
+        </EntityType>
+        <EntityType Name="Vendor Product Qty">
+          <Key>
+            <PropertyRef Name="VPQ_Id" />
+          </Key>
+          <Property Name="VPQ_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VP_Id" Type="int" />
+          <Property Name="VPQ_Qty" Type="int" />
+          <Property Name="VPQ_Status" Type="int" />
+          <Property Name="VPQ_RemainingQty" Type="int" />
+        </EntityType>
+        <EntityType Name="Vendor_Image">
+          <Key>
+            <PropertyRef Name="VendorImage_Id" />
+          </Key>
+          <Property Name="VendorImage_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorImage_Name" Type="nvarchar(max)" />
+          <Property Name="VendorImage_ImagePath" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Vendor_Info">
+          <Key>
+            <PropertyRef Name="VI_Id" />
+          </Key>
+          <Property Name="VI_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VI_CNIC" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="VI_Province" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VI_City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="US_Id" Type="int" Nullable="false" />
+          <Property Name="VI_Approved" Type="int" />
+          <Property Name="VI_NotApproved" Type="int" />
+          <Property Name="VendorImage_Id" Type="int" />
+          <Property Name="VI_Commission" Type="float" />
+        </EntityType>
+        <EntityType Name="Vendor-Product Cost">
+          <Key>
+            <PropertyRef Name="VPC_Id" />
+          </Key>
+          <Property Name="VPC_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VPQ_Id" Type="int" Nullable="false" />
+          <Property Name="Vendor_Price" Type="int" Nullable="false" />
+          <Property Name="Company_Price" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Product_Inventory_Product_C3">
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="0..1" />
+          <End Role="Product_Inventory" Type="Self.Product_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_C3">
+              <PropertyRef Name="PC3_Id" />
+            </Principal>
+            <Dependent Role="Product_Inventory">
+              <PropertyRef Name="PC3_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor Product_Product_Inventory">
+          <End Role="Product_Inventory" Type="Self.Product_Inventory" Multiplicity="0..1" />
+          <End Role="Vendor Product" Type="Self.Vendor Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Inventory">
+              <PropertyRef Name="PI_Id" />
+            </Principal>
+            <Dependent Role="Vendor Product">
+              <PropertyRef Name="PI_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderDetails_To_OrderItem">
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="0..1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetails">
+              <PropertyRef Name="OD_Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OD_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PC1_To_PC3">
+          <End Role="Product_C1" Type="Self.Product_C1" Multiplicity="0..1" />
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_C1">
+              <PropertyRef Name="PC1_Id" />
+            </Principal>
+            <Dependent Role="Product_C3">
+              <PropertyRef Name="PC1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PC2 to PC3">
+          <End Role="Product_C2" Type="Self.Product_C2" Multiplicity="0..1" />
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_C2">
+              <PropertyRef Name="PC2_Id" />
+            </Principal>
+            <Dependent Role="Product_C3">
+              <PropertyRef Name="PC2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC1 to PetsC3">
+          <End Role="Pets_C1" Type="Self.Pets_C1" Multiplicity="0..1" />
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C1">
+              <PropertyRef Name="PetsC1_Id" />
+            </Principal>
+            <Dependent Role="Pets_C3">
+              <PropertyRef Name="PetsC1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC1_To_ProductC2">
+          <End Role="Pets_C1" Type="Self.Pets_C1" Multiplicity="0..1" />
+          <End Role="Product_C2" Type="Self.Product_C2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C1">
+              <PropertyRef Name="PetsC1_Id" />
+            </Principal>
+            <Dependent Role="Product_C2">
+              <PropertyRef Name="PetsC1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC2 to PetsC3">
+          <End Role="Pets_C2" Type="Self.Pets_C2" Multiplicity="1" />
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C2">
+              <PropertyRef Name="PetsC2_Id" />
+            </Principal>
+            <Dependent Role="Pets_C3">
+              <PropertyRef Name="PetsC2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC3 To Pets_Image">
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="0..1" />
+          <End Role="Pets_Image" Type="Self.Pets_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C3">
+              <PropertyRef Name="PetsC3_Id" />
+            </Principal>
+            <Dependent Role="Pets_Image">
+              <PropertyRef Name="PetsC3_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC3 To PetsInventory">
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="0..1" />
+          <End Role="Pets_Inventory" Type="Self.Pets_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C3">
+              <PropertyRef Name="PetsC3_Id" />
+            </Principal>
+            <Dependent Role="Pets_Inventory">
+              <PropertyRef Name="PetsC3_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsWarehouse To Pets_Inventory">
+          <End Role="Pets Warehouse" Type="Self.Pets Warehouse" Multiplicity="0..1" />
+          <End Role="Pets_Inventory" Type="Self.Pets_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets Warehouse">
+              <PropertyRef Name="PetsWarehouse_Id" />
+            </Principal>
+            <Dependent Role="Pets_Inventory">
+              <PropertyRef Name="PetsWarehouse_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductImage_To_ProductC3">
+          <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="0..1" />
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Image">
+              <PropertyRef Name="ProImg_Id" />
+            </Principal>
+            <Dependent Role="Product_C3">
+              <PropertyRef Name="ProImg_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User-info To Blog">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserInfo_To_OrderDetails">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserInfo_To_VendorInfo">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="1" />
+          <End Role="Vendor_Info" Type="Self.Vendor_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="Vendor_Info">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Users To Pets Inventory">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="0..1" />
+          <End Role="Pets_Inventory" Type="Self.Pets_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="Pets_Inventory">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserType_To_User">
+          <End Role="User_Type" Type="Self.User_Type" Multiplicity="0..1" />
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Type">
+              <PropertyRef Name="U_Id" />
+            </Principal>
+            <Dependent Role="User_Info">
+              <PropertyRef Name="U_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VendorImage_To_VendorInfo">
+          <End Role="Vendor_Image" Type="Self.Vendor_Image" Multiplicity="0..1" />
+          <End Role="Vendor_Info" Type="Self.Vendor_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor_Image">
+              <PropertyRef Name="VendorImage_Id" />
+            </Principal>
+            <Dependent Role="Vendor_Info">
+              <PropertyRef Name="VendorImage_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VendorInfo_To_ProductInventory">
+          <End Role="Vendor_Info" Type="Self.Vendor_Info" Multiplicity="0..1" />
+          <End Role="Product_Inventory" Type="Self.Product_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor_Info">
+              <PropertyRef Name="VI_Id" />
+            </Principal>
+            <Dependent Role="Product_Inventory">
+              <PropertyRef Name="VI_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VendorProduct to ProInvSales">
+          <End Role="Vendor Product" Type="Self.Vendor Product" Multiplicity="1" />
+          <End Role="Product-Inverntory Sales" Type="Self.Product-Inverntory Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor Product">
+              <PropertyRef Name="VP_Id" />
+            </Principal>
+            <Dependent Role="Product-Inverntory Sales">
+              <PropertyRef Name="VP_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VenPro to VenProQty">
+          <End Role="Vendor Product" Type="Self.Vendor Product" Multiplicity="0..1" />
+          <End Role="Vendor Product Qty" Type="Self.Vendor Product Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor Product">
+              <PropertyRef Name="VP_Id" />
+            </Principal>
+            <Dependent Role="Vendor Product Qty">
+              <PropertyRef Name="VP_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VenProQty to VenProCost">
+          <End Role="Vendor Product Qty" Type="Self.Vendor Product Qty" Multiplicity="1" />
+          <End Role="Vendor-Product Cost" Type="Self.Vendor-Product Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor Product Qty">
+              <PropertyRef Name="VPQ_Id" />
+            </Principal>
+            <Dependent Role="Vendor-Product Cost">
+              <PropertyRef Name="VPQ_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddnewProductCat_1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC1_Name" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="AddnewProductCat_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC2_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AllBlogView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ApproveBlog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Blog_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ApproveProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC3_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ApprovVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VI_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="BlogDetailsGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Blog_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="BlogDisplay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="BlogUploading" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Blog_Title" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Blog_Date" Type="varchar" Mode="In" />
+          <Parameter Name="Blogger_PicturePath" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Blog_PicturePath" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Blog_WholeBlog" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Blogger_PictureName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Blog_PictureName" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="CheckUserIsAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CheckUserIsBuyerSeller" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CheckUserIsVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteBlog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Blog_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VI_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteVendorProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC3_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EmailVerification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_ConfirmCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetApproveBlogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetApproveVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetApproveVendorProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetCustomerDistinctOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="GetCustomRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="U_Type" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetNewBlogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetNewProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetNewVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetNotApproveBlogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetNotApproveVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetNotApproveVendorProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetProductCart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC3_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetUserOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="NotApproveBlog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Blog_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="NotApproveProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC3_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="NotApprovVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VI_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Order" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DeliveryAddress" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Phone1" Type="varchar" Mode="In" />
+          <Parameter Name="Phone2" Type="varchar" Mode="In" />
+          <Parameter Name="TotalPrice" Type="money" Mode="In" />
+          <Parameter Name="Totalitem" Type="int" Mode="In" />
+          <Parameter Name="PC3_Id" Type="int" Mode="In" />
+          <Parameter Name="Qty" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PetsInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PetsC1_Name" Type="varchar" Mode="In" />
+          <Parameter Name="PetsC2_Name" Type="varchar" Mode="In" />
+          <Parameter Name="PetsC3_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PetsPanelView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ProductDetailsGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC3_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProductInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC1_Id" Type="varchar" Mode="In" />
+          <Parameter Name="PC2_Name" Type="varchar" Mode="In" />
+          <Parameter Name="PC3_Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ProductPanelView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ProductSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProSearch" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="RegisterAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+          <Parameter Name="US_Phone" Type="nchar" Mode="In" />
+          <Parameter Name="US_Address" Type="varchar" Mode="In" />
+          <Parameter Name="US_Email" Type="varchar" Mode="In" />
+          <Parameter Name="US_Password" Type="varchar" Mode="In" />
+          <Parameter Name="US_ConfirmCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RegisterBuyerSeller" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+          <Parameter Name="US_Phone" Type="nchar" Mode="In" />
+          <Parameter Name="US_Address" Type="varchar" Mode="In" />
+          <Parameter Name="US_Email" Type="varchar" Mode="In" />
+          <Parameter Name="US_Password" Type="varchar" Mode="In" />
+          <Parameter Name="US_ConfirmCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RegisterVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+          <Parameter Name="US_Phone" Type="nchar" Mode="In" />
+          <Parameter Name="US_Address" Type="varchar" Mode="In" />
+          <Parameter Name="US_Email" Type="varchar" Mode="In" />
+          <Parameter Name="US_Password" Type="varchar" Mode="In" />
+          <Parameter Name="VI_CNIC" Type="nvarchar" Mode="In" />
+          <Parameter Name="VI_Province" Type="varchar" Mode="In" />
+          <Parameter Name="VI_City" Type="varchar" Mode="In" />
+          <Parameter Name="US_ConfirmCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="VendorImage_ImagePath" Type="varchar(max)" Mode="In" />
+          <Parameter Name="VendorImage_Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SearchProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC3_Name" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SelectedPetDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PetsC3_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectedProductDeatils" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC3_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SelectProductInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OldProductId" Type="int" Mode="In" />
+          <Parameter Name="PC1_Id" Type="int" Mode="In" />
+          <Parameter Name="PC2_Id" Type="int" Mode="In" />
+          <Parameter Name="PC3_Name" Type="varchar(max)" Mode="In" />
+          <Parameter Name="VP_Desc" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="VP_Specs" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="VPQ_Qty" Type="int" Mode="In" />
+          <Parameter Name="Vendor_Price" Type="int" Mode="In" />
+          <Parameter Name="Company_Price" Type="int" Mode="In" />
+          <Parameter Name="ProImg_Path" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ProImg_Name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ProImgId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+          <Parameter Name="US_Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UserPetsEntry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+          <Parameter Name="PetsC1_Id" Type="int" Mode="In" />
+          <Parameter Name="PetsC2_Id" Type="int" Mode="In" />
+          <Parameter Name="PetsC3_Name" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Descrption" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Cost" Type="int" Mode="In" />
+          <Parameter Name="PetsImage_Path" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PetsImage_Name" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="VendorCommission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VI_Id" Type="int" Mode="In" />
+          <Parameter Name="VI_Commission" Type="float" Mode="In" />
+        </Function>
+        <Function Name="VendorDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VI_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="VendorOrderDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VendorName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="OrderID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="VendorOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="VendorProductEntry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="US_Name" Type="varchar" Mode="In" />
+          <Parameter Name="PC1_Id" Type="varchar" Mode="In" />
+          <Parameter Name="PC2_Id" Type="varchar" Mode="In" />
+          <Parameter Name="PC3_Name" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ProImg_Path" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ProImg_Name" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="VP_Desc" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="VP_Specs" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="VPQ_Qty" Type="int" Mode="In" />
+          <Parameter Name="VPQ_Status" Type="int" Mode="In" />
+          <Parameter Name="Vendor_Price" Type="money" Mode="In" />
+          <Parameter Name="Company_Price" Type="money" Mode="In" />
+        </Function>
+        <EntityContainer Name="PetsPlanetDBModelStoreContainer">
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pets Warehouse" EntityType="Self.Pets Warehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pets_C1" EntityType="Self.Pets_C1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pets_C2" EntityType="Self.Pets_C2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pets_C3" EntityType="Self.Pets_C3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pets_Image" EntityType="Self.Pets_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pets_Inventory" EntityType="Self.Pets_Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_C1" EntityType="Self.Product_C1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_C2" EntityType="Self.Product_C2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_C3" EntityType="Self.Product_C3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Image" EntityType="Self.Product_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Inventory" EntityType="Self.Product_Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product-Inverntory Sales" EntityType="Self.Product-Inverntory Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Info" EntityType="Self.User_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Type" EntityType="Self.User_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor Product" EntityType="Self.Vendor Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor Product Qty" EntityType="Self.Vendor Product Qty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor_Image" EntityType="Self.Vendor_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor_Info" EntityType="Self.Vendor_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor-Product Cost" EntityType="Self.Vendor-Product Cost" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Product_Inventory_Product_C3" Association="Self.FK_Product_Inventory_Product_C3">
+            <End Role="Product_C3" EntitySet="Product_C3" />
+            <End Role="Product_Inventory" EntitySet="Product_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor Product_Product_Inventory" Association="Self.FK_Vendor Product_Product_Inventory">
+            <End Role="Product_Inventory" EntitySet="Product_Inventory" />
+            <End Role="Vendor Product" EntitySet="Vendor Product" />
+          </AssociationSet>
+          <AssociationSet Name="OrderDetails_To_OrderItem" Association="Self.OrderDetails_To_OrderItem">
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="PC1_To_PC3" Association="Self.PC1_To_PC3">
+            <End Role="Product_C1" EntitySet="Product_C1" />
+            <End Role="Product_C3" EntitySet="Product_C3" />
+          </AssociationSet>
+          <AssociationSet Name="PC2 to PC3" Association="Self.PC2 to PC3">
+            <End Role="Product_C2" EntitySet="Product_C2" />
+            <End Role="Product_C3" EntitySet="Product_C3" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC1 to PetsC3" Association="Self.PetsC1 to PetsC3">
+            <End Role="Pets_C1" EntitySet="Pets_C1" />
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC1_To_ProductC2" Association="Self.PetsC1_To_ProductC2">
+            <End Role="Pets_C1" EntitySet="Pets_C1" />
+            <End Role="Product_C2" EntitySet="Product_C2" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC2 to PetsC3" Association="Self.PetsC2 to PetsC3">
+            <End Role="Pets_C2" EntitySet="Pets_C2" />
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC3 To Pets_Image" Association="Self.PetsC3 To Pets_Image">
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+            <End Role="Pets_Image" EntitySet="Pets_Image" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC3 To PetsInventory" Association="Self.PetsC3 To PetsInventory">
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+            <End Role="Pets_Inventory" EntitySet="Pets_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="PetsWarehouse To Pets_Inventory" Association="Self.PetsWarehouse To Pets_Inventory">
+            <End Role="Pets Warehouse" EntitySet="Pets Warehouse" />
+            <End Role="Pets_Inventory" EntitySet="Pets_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="ProductImage_To_ProductC3" Association="Self.ProductImage_To_ProductC3">
+            <End Role="Product_Image" EntitySet="Product_Image" />
+            <End Role="Product_C3" EntitySet="Product_C3" />
+          </AssociationSet>
+          <AssociationSet Name="User-info To Blog" Association="Self.User-info To Blog">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="UserInfo_To_OrderDetails" Association="Self.UserInfo_To_OrderDetails">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="UserInfo_To_VendorInfo" Association="Self.UserInfo_To_VendorInfo">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="Vendor_Info" EntitySet="Vendor_Info" />
+          </AssociationSet>
+          <AssociationSet Name="Users To Pets Inventory" Association="Self.Users To Pets Inventory">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="Pets_Inventory" EntitySet="Pets_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="UserType_To_User" Association="Self.UserType_To_User">
+            <End Role="User_Type" EntitySet="User_Type" />
+            <End Role="User_Info" EntitySet="User_Info" />
+          </AssociationSet>
+          <AssociationSet Name="VendorImage_To_VendorInfo" Association="Self.VendorImage_To_VendorInfo">
+            <End Role="Vendor_Image" EntitySet="Vendor_Image" />
+            <End Role="Vendor_Info" EntitySet="Vendor_Info" />
+          </AssociationSet>
+          <AssociationSet Name="VendorInfo_To_ProductInventory" Association="Self.VendorInfo_To_ProductInventory">
+            <End Role="Vendor_Info" EntitySet="Vendor_Info" />
+            <End Role="Product_Inventory" EntitySet="Product_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="VendorProduct to ProInvSales" Association="Self.VendorProduct to ProInvSales">
+            <End Role="Vendor Product" EntitySet="Vendor Product" />
+            <End Role="Product-Inverntory Sales" EntitySet="Product-Inverntory Sales" />
+          </AssociationSet>
+          <AssociationSet Name="VenPro to VenProQty" Association="Self.VenPro to VenProQty">
+            <End Role="Vendor Product" EntitySet="Vendor Product" />
+            <End Role="Vendor Product Qty" EntitySet="Vendor Product Qty" />
+          </AssociationSet>
+          <AssociationSet Name="VenProQty to VenProCost" Association="Self.VenProQty to VenProCost">
+            <End Role="Vendor Product Qty" EntitySet="Vendor Product Qty" />
+            <End Role="Vendor-Product Cost" EntitySet="Vendor-Product Cost" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PetsPlanetDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="Blog_Id" />
+          </Key>
+          <Property Name="Blog_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Blog_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Blog_Date" Type="DateTime" Precision="0" />
+          <Property Name="Blogger_PicturePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Blog_PicturePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Blog_WholeBlog" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="US_Id" Type="Int32" />
+          <Property Name="Blogger_PictureName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Blog_PictureName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Blog_Status" Type="Int32" />
+          <NavigationProperty Name="User_Info" Relationship="Self.User_info_To_Blog" FromRole="Blog" ToRole="User_Info" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OD_Id" />
+          </Key>
+          <Property Name="OD_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="US_Id" Type="Int32" />
+          <Property Name="DeliveryAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Totalitem" Type="Int32" />
+          <NavigationProperty Name="User_Info" Relationship="Self.UserInfo_To_OrderDetails" FromRole="OrderDetails" ToRole="User_Info" />
+          <Property Name="US_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrderItems" Relationship="PetsPlanetDBModel.OrderDetails_To_OrderItem" FromRole="OrderDetail" ToRole="OrderItem" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderitemID" />
+          </Key>
+          <Property Name="OrderitemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OD_Id" Type="Int32" />
+          <Property Name="VPC_Id" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="QuantityOrder" Type="Int32" />
+          <Property Name="TotalItemPrice" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="OrderDetail" Relationship="PetsPlanetDBModel.OrderDetails_To_OrderItem" FromRole="OrderItem" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="Pets_Warehouse">
+          <Key>
+            <PropertyRef Name="PetsWarehouse_Id" />
+          </Key>
+          <Property Name="PetsWarehouse_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descrption" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="Pets_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApprovedPets" Type="Int32" />
+          <Property Name="NotApprovedPets" Type="Int32" />
+          <NavigationProperty Name="Pets_Inventory" Relationship="Self.PetsWarehouse_To_Pets_Inventory" FromRole="Pets_Warehouse" ToRole="Pets_Inventory" />
+        </EntityType>
+        <EntityType Name="Pets_C1">
+          <Key>
+            <PropertyRef Name="PetsC1_Id" />
+          </Key>
+          <Property Name="PetsC1_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PetsC1_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Pets_C3" Relationship="Self.PetsC1_to_PetsC3" FromRole="Pets_C1" ToRole="Pets_C3" />
+          <NavigationProperty Name="Product_C2" Relationship="Self.PetsC1_To_ProductC2" FromRole="Pets_C1" ToRole="Product_C2" />
+        </EntityType>
+        <EntityType Name="Pets_C2">
+          <Key>
+            <PropertyRef Name="PetsC2_Id" />
+          </Key>
+          <Property Name="PetsC2_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PetsC2_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Pets_C3" Relationship="Self.PetsC2_to_PetsC3" FromRole="Pets_C2" ToRole="Pets_C3" />
+        </EntityType>
+        <EntityType Name="Pets_C3">
+          <Key>
+            <PropertyRef Name="PetsC3_Id" />
+          </Key>
+          <Property Name="PetsC3_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PetsC3_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PetsC2_Id" Type="Int32" Nullable="false" />
+          <Property Name="PetsC1_Id" Type="Int32" />
+          <NavigationProperty Name="Pets_C1" Relationship="Self.PetsC1_to_PetsC3" FromRole="Pets_C3" ToRole="Pets_C1" />
+          <NavigationProperty Name="Pets_C2" Relationship="Self.PetsC2_to_PetsC3" FromRole="Pets_C3" ToRole="Pets_C2" />
+          <NavigationProperty Name="Pets_Image" Relationship="Self.PetsC3_To_Pets_Image" FromRole="Pets_C3" ToRole="Pets_Image" />
+          <NavigationProperty Name="Pets_Inventory" Relationship="Self.PetsC3_To_PetsInventory" FromRole="Pets_C3" ToRole="Pets_Inventory" />
+        </EntityType>
+        <EntityType Name="Pets_Image">
+          <Key>
+            <PropertyRef Name="PetsImage_Id" />
+          </Key>
+          <Property Name="PetsImage_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PetsImage_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PetsImage_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PetsC3_Id" Type="Int32" />
+          <NavigationProperty Name="Pets_C3" Relationship="Self.PetsC3_To_Pets_Image" FromRole="Pets_Image" ToRole="Pets_C3" />
+        </EntityType>
+        <EntityType Name="Pets_Inventory">
+          <Key>
+            <PropertyRef Name="PetInventory_Id" />
+          </Key>
+          <Property Name="PetInventory_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PetsC3_Id" Type="Int32" />
+          <Property Name="US_Id" Type="Int32" />
+          <Property Name="PetsWarehouse_Id" Type="Int32" />
+          <NavigationProperty Name="Pets_Warehouse" Relationship="Self.PetsWarehouse_To_Pets_Inventory" FromRole="Pets_Inventory" ToRole="Pets_Warehouse" />
+          <NavigationProperty Name="Pets_C3" Relationship="Self.PetsC3_To_PetsInventory" FromRole="Pets_Inventory" ToRole="Pets_C3" />
+          <NavigationProperty Name="User_Info" Relationship="Self.Users_To_Pets_Inventory" FromRole="Pets_Inventory" ToRole="User_Info" />
+        </EntityType>
+        <EntityType Name="Product_C1">
+          <Key>
+            <PropertyRef Name="PC1_Id" />
+          </Key>
+          <Property Name="PC1_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PC1_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product_C3" Relationship="Self.PC1_To_PC3" FromRole="Product_C1" ToRole="Product_C3" />
+        </EntityType>
+        <EntityType Name="Product_C2">
+          <Key>
+            <PropertyRef Name="PC2_Id" />
+          </Key>
+          <Property Name="PC2_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PC2_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PetsC1_Id" Type="Int32" />
+          <NavigationProperty Name="Pets_C1" Relationship="Self.PetsC1_To_ProductC2" FromRole="Product_C2" ToRole="Pets_C1" />
+          <NavigationProperty Name="Product_C3" Relationship="Self.PC2_to_PC3" FromRole="Product_C2" ToRole="Product_C3" />
+        </EntityType>
+        <EntityType Name="Product_C3">
+          <Key>
+            <PropertyRef Name="PC3_Id" />
+          </Key>
+          <Property Name="PC3_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PC3_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PC2_Id" Type="Int32" />
+          <Property Name="PC1_Id" Type="Int32" />
+          <Property Name="ProImg_Id" Type="Int32" />
+          <Property Name="Pro_Views" Type="Int32" />
+          <NavigationProperty Name="Product_C1" Relationship="Self.PC1_To_PC3" FromRole="Product_C3" ToRole="Product_C1" />
+          <NavigationProperty Name="Product_C2" Relationship="Self.PC2_to_PC3" FromRole="Product_C3" ToRole="Product_C2" />
+          <NavigationProperty Name="Product_Inventory" Relationship="Self.FK_Product_Inventory_Product_C3" FromRole="Product_C3" ToRole="Product_Inventory" />
+          <NavigationProperty Name="Product_Image" Relationship="Self.ProductImage_To_ProductC3" FromRole="Product_C3" ToRole="Product_Image" />
+        </EntityType>
+        <EntityType Name="Product_Image">
+          <Key>
+            <PropertyRef Name="ProImg_Id" />
+          </Key>
+          <Property Name="ProImg_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProImg_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProImg_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product_C3" Relationship="Self.ProductImage_To_ProductC3" FromRole="Product_Image" ToRole="Product_C3" />
+        </EntityType>
+        <EntityType Name="Product_Inventory">
+          <Key>
+            <PropertyRef Name="PI_Id" />
+          </Key>
+          <Property Name="PI_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PC3_Id" Type="Int32" />
+          <Property Name="VI_Id" Type="Int32" />
+          <Property Name="PI_OutOfStock" Type="Int32" />
+          <NavigationProperty Name="Product_C3" Relationship="Self.FK_Product_Inventory_Product_C3" FromRole="Product_Inventory" ToRole="Product_C3" />
+          <NavigationProperty Name="Vendor_Product" Relationship="Self.FK_Vendor_Product_Product_Inventory" FromRole="Product_Inventory" ToRole="Vendor_Product" />
+          <NavigationProperty Name="Vendor_Info" Relationship="Self.VendorInfo_To_ProductInventory" FromRole="Product_Inventory" ToRole="Vendor_Info" />
+        </EntityType>
+        <EntityType Name="Product_Inverntory_Sales">
+          <Key>
+            <PropertyRef Name="PIS_Id" />
+          </Key>
+          <Property Name="PIS_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VP_Id" Type="Int32" Nullable="false" />
+          <Property Name="PIS_SalesPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PIS_CompanyPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Vendor_Product" Relationship="Self.VendorProduct_to_ProInvSales" FromRole="Product_Inverntory_Sales" ToRole="Vendor_Product" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User_Info">
+          <Key>
+            <PropertyRef Name="US_Id" />
+          </Key>
+          <Property Name="US_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="US_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="US_Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="US_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="US_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="U_Id" Type="Int32" />
+          <Property Name="US_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsValid" Type="Int32" />
+          <Property Name="US_ConfirmCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Blogs" Relationship="Self.User_info_To_Blog" FromRole="User_Info" ToRole="Blog" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.UserInfo_To_OrderDetails" FromRole="User_Info" ToRole="OrderDetails" />
+          <NavigationProperty Name="Pets_Inventory" Relationship="Self.Users_To_Pets_Inventory" FromRole="User_Info" ToRole="Pets_Inventory" />
+          <NavigationProperty Name="Vendor_Info" Relationship="Self.UserInfo_To_VendorInfo" FromRole="User_Info" ToRole="Vendor_Info" />
+          <NavigationProperty Name="User_Type" Relationship="Self.UserType_To_User" FromRole="User_Info" ToRole="User_Type" />
+        </EntityType>
+        <EntityType Name="User_Type">
+          <Key>
+            <PropertyRef Name="U_Id" />
+          </Key>
+          <Property Name="U_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="U_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User_Info" Relationship="Self.UserType_To_User" FromRole="User_Type" ToRole="User_Info" />
+        </EntityType>
+        <EntityType Name="Vendor_Product">
+          <Key>
+            <PropertyRef Name="VP_Id" />
+          </Key>
+          <Property Name="VP_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VP_ApproveProduct" Type="Int32" />
+          <Property Name="VP_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VP_Specs" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PI_Id" Type="Int32" />
+          <Property Name="VP_NotApproveProduct" Type="Int32" />
+          <NavigationProperty Name="Product_Inventory" Relationship="Self.FK_Vendor_Product_Product_Inventory" FromRole="Vendor_Product" ToRole="Product_Inventory" />
+          <NavigationProperty Name="Product_Inverntory_Sales" Relationship="Self.VendorProduct_to_ProInvSales" FromRole="Vendor_Product" ToRole="Product_Inverntory_Sales" />
+          <NavigationProperty Name="Vendor_Product_Qty" Relationship="Self.VenPro_to_VenProQty" FromRole="Vendor_Product" ToRole="Vendor_Product_Qty" />
+        </EntityType>
+        <EntityType Name="Vendor_Product_Qty">
+          <Key>
+            <PropertyRef Name="VPQ_Id" />
+          </Key>
+          <Property Name="VPQ_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VP_Id" Type="Int32" />
+          <Property Name="VPQ_Qty" Type="Int32" />
+          <Property Name="VPQ_Status" Type="Int32" />
+          <Property Name="VPQ_RemainingQty" Type="Int32" />
+          <NavigationProperty Name="Vendor_Product" Relationship="Self.VenPro_to_VenProQty" FromRole="Vendor_Product_Qty" ToRole="Vendor_Product" />
+          <NavigationProperty Name="Vendor_Product_Cost" Relationship="Self.VenProQty_to_VenProCost" FromRole="Vendor_Product_Qty" ToRole="Vendor_Product_Cost" />
+        </EntityType>
+        <EntityType Name="Vendor_Image">
+          <Key>
+            <PropertyRef Name="VendorImage_Id" />
+          </Key>
+          <Property Name="VendorImage_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorImage_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VendorImage_ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vendor_Info" Relationship="Self.VendorImage_To_VendorInfo" FromRole="Vendor_Image" ToRole="Vendor_Info" />
+        </EntityType>
+        <EntityType Name="Vendor_Info">
+          <Key>
+            <PropertyRef Name="VI_Id" />
+          </Key>
+          <Property Name="VI_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VI_CNIC" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VI_Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VI_City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="US_Id" Type="Int32" Nullable="false" />
+          <Property Name="VI_Approved" Type="Int32" />
+          <Property Name="VI_NotApproved" Type="Int32" />
+          <Property Name="VendorImage_Id" Type="Int32" />
+          <Property Name="VI_Commission" Type="Double" />
+          <NavigationProperty Name="Product_Inventory" Relationship="Self.VendorInfo_To_ProductInventory" FromRole="Vendor_Info" ToRole="Product_Inventory" />
+          <NavigationProperty Name="User_Info" Relationship="Self.UserInfo_To_VendorInfo" FromRole="Vendor_Info" ToRole="User_Info" />
+          <NavigationProperty Name="Vendor_Image" Relationship="Self.VendorImage_To_VendorInfo" FromRole="Vendor_Info" ToRole="Vendor_Image" />
+        </EntityType>
+        <EntityType Name="Vendor_Product_Cost">
+          <Key>
+            <PropertyRef Name="VPC_Id" />
+          </Key>
+          <Property Name="VPC_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VPQ_Id" Type="Int32" Nullable="false" />
+          <Property Name="Vendor_Price" Type="Int32" Nullable="false" />
+          <Property Name="Company_Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Vendor_Product_Qty" Relationship="Self.VenProQty_to_VenProCost" FromRole="Vendor_Product_Cost" ToRole="Vendor_Product_Qty" />
+        </EntityType>
+        <Association Name="User_info_To_Blog">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserInfo_To_OrderDetails">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsWarehouse_To_Pets_Inventory">
+          <End Role="Pets_Warehouse" Type="Self.Pets_Warehouse" Multiplicity="0..1" />
+          <End Role="Pets_Inventory" Type="Self.Pets_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_Warehouse">
+              <PropertyRef Name="PetsWarehouse_Id" />
+            </Principal>
+            <Dependent Role="Pets_Inventory">
+              <PropertyRef Name="PetsWarehouse_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC1_to_PetsC3">
+          <End Role="Pets_C1" Type="Self.Pets_C1" Multiplicity="0..1" />
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C1">
+              <PropertyRef Name="PetsC1_Id" />
+            </Principal>
+            <Dependent Role="Pets_C3">
+              <PropertyRef Name="PetsC1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC1_To_ProductC2">
+          <End Role="Pets_C1" Type="Self.Pets_C1" Multiplicity="0..1" />
+          <End Role="Product_C2" Type="Self.Product_C2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C1">
+              <PropertyRef Name="PetsC1_Id" />
+            </Principal>
+            <Dependent Role="Product_C2">
+              <PropertyRef Name="PetsC1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC2_to_PetsC3">
+          <End Role="Pets_C2" Type="Self.Pets_C2" Multiplicity="1" />
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C2">
+              <PropertyRef Name="PetsC2_Id" />
+            </Principal>
+            <Dependent Role="Pets_C3">
+              <PropertyRef Name="PetsC2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC3_To_Pets_Image">
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="0..1" />
+          <End Role="Pets_Image" Type="Self.Pets_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C3">
+              <PropertyRef Name="PetsC3_Id" />
+            </Principal>
+            <Dependent Role="Pets_Image">
+              <PropertyRef Name="PetsC3_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PetsC3_To_PetsInventory">
+          <End Role="Pets_C3" Type="Self.Pets_C3" Multiplicity="0..1" />
+          <End Role="Pets_Inventory" Type="Self.Pets_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pets_C3">
+              <PropertyRef Name="PetsC3_Id" />
+            </Principal>
+            <Dependent Role="Pets_Inventory">
+              <PropertyRef Name="PetsC3_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Users_To_Pets_Inventory">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="0..1" />
+          <End Role="Pets_Inventory" Type="Self.Pets_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="Pets_Inventory">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PC1_To_PC3">
+          <End Role="Product_C1" Type="Self.Product_C1" Multiplicity="0..1" />
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_C1">
+              <PropertyRef Name="PC1_Id" />
+            </Principal>
+            <Dependent Role="Product_C3">
+              <PropertyRef Name="PC1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PC2_to_PC3">
+          <End Role="Product_C2" Type="Self.Product_C2" Multiplicity="0..1" />
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_C2">
+              <PropertyRef Name="PC2_Id" />
+            </Principal>
+            <Dependent Role="Product_C3">
+              <PropertyRef Name="PC2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Inventory_Product_C3">
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="0..1" />
+          <End Role="Product_Inventory" Type="Self.Product_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_C3">
+              <PropertyRef Name="PC3_Id" />
+            </Principal>
+            <Dependent Role="Product_Inventory">
+              <PropertyRef Name="PC3_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductImage_To_ProductC3">
+          <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="0..1" />
+          <End Role="Product_C3" Type="Self.Product_C3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Image">
+              <PropertyRef Name="ProImg_Id" />
+            </Principal>
+            <Dependent Role="Product_C3">
+              <PropertyRef Name="ProImg_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendor_Product_Product_Inventory">
+          <End Role="Product_Inventory" Type="Self.Product_Inventory" Multiplicity="0..1" />
+          <End Role="Vendor_Product" Type="Self.Vendor_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Inventory">
+              <PropertyRef Name="PI_Id" />
+            </Principal>
+            <Dependent Role="Vendor_Product">
+              <PropertyRef Name="PI_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VendorInfo_To_ProductInventory">
+          <End Role="Vendor_Info" Type="Self.Vendor_Info" Multiplicity="0..1" />
+          <End Role="Product_Inventory" Type="Self.Product_Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor_Info">
+              <PropertyRef Name="VI_Id" />
+            </Principal>
+            <Dependent Role="Product_Inventory">
+              <PropertyRef Name="VI_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VendorProduct_to_ProInvSales">
+          <End Role="Vendor_Product" Type="Self.Vendor_Product" Multiplicity="1" />
+          <End Role="Product_Inverntory_Sales" Type="Self.Product_Inverntory_Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor_Product">
+              <PropertyRef Name="VP_Id" />
+            </Principal>
+            <Dependent Role="Product_Inverntory_Sales">
+              <PropertyRef Name="VP_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserInfo_To_VendorInfo">
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="1" />
+          <End Role="Vendor_Info" Type="Self.Vendor_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Info">
+              <PropertyRef Name="US_Id" />
+            </Principal>
+            <Dependent Role="Vendor_Info">
+              <PropertyRef Name="US_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserType_To_User">
+          <End Role="User_Type" Type="Self.User_Type" Multiplicity="0..1" />
+          <End Role="User_Info" Type="Self.User_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Type">
+              <PropertyRef Name="U_Id" />
+            </Principal>
+            <Dependent Role="User_Info">
+              <PropertyRef Name="U_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VenPro_to_VenProQty">
+          <End Role="Vendor_Product" Type="Self.Vendor_Product" Multiplicity="0..1" />
+          <End Role="Vendor_Product_Qty" Type="Self.Vendor_Product_Qty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor_Product">
+              <PropertyRef Name="VP_Id" />
+            </Principal>
+            <Dependent Role="Vendor_Product_Qty">
+              <PropertyRef Name="VP_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VenProQty_to_VenProCost">
+          <End Role="Vendor_Product_Qty" Type="Self.Vendor_Product_Qty" Multiplicity="1" />
+          <End Role="Vendor_Product_Cost" Type="Self.Vendor_Product_Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor_Product_Qty">
+              <PropertyRef Name="VPQ_Id" />
+            </Principal>
+            <Dependent Role="Vendor_Product_Cost">
+              <PropertyRef Name="VPQ_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VendorImage_To_VendorInfo">
+          <End Role="Vendor_Image" Type="Self.Vendor_Image" Multiplicity="0..1" />
+          <End Role="Vendor_Info" Type="Self.Vendor_Info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendor_Image">
+              <PropertyRef Name="VendorImage_Id" />
+            </Principal>
+            <Dependent Role="Vendor_Info">
+              <PropertyRef Name="VendorImage_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PetsPlanetDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+          <EntitySet Name="Pets_Warehouses" EntityType="Self.Pets_Warehouse" />
+          <EntitySet Name="Pets_C1" EntityType="Self.Pets_C1" />
+          <EntitySet Name="Pets_C2" EntityType="Self.Pets_C2" />
+          <EntitySet Name="Pets_C3" EntityType="Self.Pets_C3" />
+          <EntitySet Name="Pets_Image" EntityType="Self.Pets_Image" />
+          <EntitySet Name="Pets_Inventory" EntityType="Self.Pets_Inventory" />
+          <EntitySet Name="Product_C1" EntityType="Self.Product_C1" />
+          <EntitySet Name="Product_C2" EntityType="Self.Product_C2" />
+          <EntitySet Name="Product_C3" EntityType="Self.Product_C3" />
+          <EntitySet Name="Product_Image" EntityType="Self.Product_Image" />
+          <EntitySet Name="Product_Inventory" EntityType="Self.Product_Inventory" />
+          <EntitySet Name="Product_Inverntory_Sales" EntityType="Self.Product_Inverntory_Sales" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="User_Info" EntityType="Self.User_Info" />
+          <EntitySet Name="User_Type" EntityType="Self.User_Type" />
+          <EntitySet Name="Vendor_Products" EntityType="Self.Vendor_Product" />
+          <EntitySet Name="Vendor_Product_Qties" EntityType="Self.Vendor_Product_Qty" />
+          <EntitySet Name="Vendor_Image" EntityType="Self.Vendor_Image" />
+          <EntitySet Name="Vendor_Info" EntityType="Self.Vendor_Info" />
+          <EntitySet Name="Vendor_Product_Cost" EntityType="Self.Vendor_Product_Cost" />
+          <AssociationSet Name="User_info_To_Blog" Association="Self.User_info_To_Blog">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="Blog" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="UserInfo_To_OrderDetails" Association="Self.UserInfo_To_OrderDetails">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="PetsWarehouse_To_Pets_Inventory" Association="Self.PetsWarehouse_To_Pets_Inventory">
+            <End Role="Pets_Warehouse" EntitySet="Pets_Warehouses" />
+            <End Role="Pets_Inventory" EntitySet="Pets_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC1_to_PetsC3" Association="Self.PetsC1_to_PetsC3">
+            <End Role="Pets_C1" EntitySet="Pets_C1" />
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC1_To_ProductC2" Association="Self.PetsC1_To_ProductC2">
+            <End Role="Pets_C1" EntitySet="Pets_C1" />
+            <End Role="Product_C2" EntitySet="Product_C2" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC2_to_PetsC3" Association="Self.PetsC2_to_PetsC3">
+            <End Role="Pets_C2" EntitySet="Pets_C2" />
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC3_To_Pets_Image" Association="Self.PetsC3_To_Pets_Image">
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+            <End Role="Pets_Image" EntitySet="Pets_Image" />
+          </AssociationSet>
+          <AssociationSet Name="PetsC3_To_PetsInventory" Association="Self.PetsC3_To_PetsInventory">
+            <End Role="Pets_C3" EntitySet="Pets_C3" />
+            <End Role="Pets_Inventory" EntitySet="Pets_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="Users_To_Pets_Inventory" Association="Self.Users_To_Pets_Inventory">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="Pets_Inventory" EntitySet="Pets_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="PC1_To_PC3" Association="Self.PC1_To_PC3">
+            <End Role="Product_C1" EntitySet="Product_C1" />
+            <End Role="Product_C3" EntitySet="Product_C3" />
+          </AssociationSet>
+          <AssociationSet Name="PC2_to_PC3" Association="Self.PC2_to_PC3">
+            <End Role="Product_C2" EntitySet="Product_C2" />
+            <End Role="Product_C3" EntitySet="Product_C3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Inventory_Product_C3" Association="Self.FK_Product_Inventory_Product_C3">
+            <End Role="Product_C3" EntitySet="Product_C3" />
+            <End Role="Product_Inventory" EntitySet="Product_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="ProductImage_To_ProductC3" Association="Self.ProductImage_To_ProductC3">
+            <End Role="Product_Image" EntitySet="Product_Image" />
+            <End Role="Product_C3" EntitySet="Product_C3" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendor_Product_Product_Inventory" Association="Self.FK_Vendor_Product_Product_Inventory">
+            <End Role="Product_Inventory" EntitySet="Product_Inventory" />
+            <End Role="Vendor_Product" EntitySet="Vendor_Products" />
+          </AssociationSet>
+          <AssociationSet Name="VendorInfo_To_ProductInventory" Association="Self.VendorInfo_To_ProductInventory">
+            <End Role="Vendor_Info" EntitySet="Vendor_Info" />
+            <End Role="Product_Inventory" EntitySet="Product_Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="VendorProduct_to_ProInvSales" Association="Self.VendorProduct_to_ProInvSales">
+            <End Role="Vendor_Product" EntitySet="Vendor_Products" />
+            <End Role="Product_Inverntory_Sales" EntitySet="Product_Inverntory_Sales" />
+          </AssociationSet>
+          <AssociationSet Name="UserInfo_To_VendorInfo" Association="Self.UserInfo_To_VendorInfo">
+            <End Role="User_Info" EntitySet="User_Info" />
+            <End Role="Vendor_Info" EntitySet="Vendor_Info" />
+          </AssociationSet>
+          <AssociationSet Name="UserType_To_User" Association="Self.UserType_To_User">
+            <End Role="User_Type" EntitySet="User_Type" />
+            <End Role="User_Info" EntitySet="User_Info" />
+          </AssociationSet>
+          <AssociationSet Name="VenPro_to_VenProQty" Association="Self.VenPro_to_VenProQty">
+            <End Role="Vendor_Product" EntitySet="Vendor_Products" />
+            <End Role="Vendor_Product_Qty" EntitySet="Vendor_Product_Qties" />
+          </AssociationSet>
+          <AssociationSet Name="VenProQty_to_VenProCost" Association="Self.VenProQty_to_VenProCost">
+            <End Role="Vendor_Product_Qty" EntitySet="Vendor_Product_Qties" />
+            <End Role="Vendor_Product_Cost" EntitySet="Vendor_Product_Cost" />
+          </AssociationSet>
+          <AssociationSet Name="VendorImage_To_VendorInfo" Association="Self.VendorImage_To_VendorInfo">
+            <End Role="Vendor_Image" EntitySet="Vendor_Image" />
+            <End Role="Vendor_Info" EntitySet="Vendor_Info" />
+          </AssociationSet>
+          <FunctionImport Name="AddnewProductCat_1">
+          <Parameter Name="PC1_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddnewProductCat_2">
+          <Parameter Name="PC2_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AllBlogView" ReturnType="Collection(PetsPlanetDBModel.AllBlogView_Result)" />
+          <FunctionImport Name="ApproveBlog">
+          <Parameter Name="Blog_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ApproveProduct" ReturnType="Collection(Int32)">
+          <Parameter Name="PC3_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ApprovVendor" ReturnType="Collection(Int32)">
+          <Parameter Name="VI_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="BlogDetailsGet" ReturnType="Collection(PetsPlanetDBModel.BlogDetailsGet_Result)">
+          <Parameter Name="Blog_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="BlogDisplay" ReturnType="Collection(PetsPlanetDBModel.BlogDisplay_Result)" />
+          <FunctionImport Name="BlogUploading">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="Blog_Title" Mode="In" Type="String" />
+            <Parameter Name="Blog_Date" Mode="In" Type="String" />
+            <Parameter Name="Blogger_PicturePath" Mode="In" Type="String" />
+            <Parameter Name="Blog_PicturePath" Mode="In" Type="String" />
+            <Parameter Name="Blog_WholeBlog" Mode="In" Type="String" />
+            <Parameter Name="Blogger_PictureName" Mode="In" Type="String" />
+            <Parameter Name="Blog_PictureName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CheckUserIsAdmin" ReturnType="Collection(Int32)">
+          <Parameter Name="US_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CheckUserIsBuyerSeller" ReturnType="Collection(Int32)">
+          <Parameter Name="US_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CheckUserIsVendor" ReturnType="Collection(Int32)">
+          <Parameter Name="US_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteBlog">
+          <Parameter Name="Blog_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteVendor">
+          <Parameter Name="VI_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteVendorProduct">
+          <Parameter Name="PC3_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EmailVerification" ReturnType="Collection(Int32)">
+          <Parameter Name="US_ConfirmCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetApproveBlogs" ReturnType="Collection(PetsPlanetDBModel.GetApproveBlogs_Result)" />
+          <FunctionImport Name="GetApproveVendor" ReturnType="Collection(PetsPlanetDBModel.GetApproveVendor_Result)" />
+          <FunctionImport Name="GetApproveVendorProducts" ReturnType="Collection(PetsPlanetDBModel.GetApproveVendorProducts_Result)" />
+          <FunctionImport Name="GetCustomRoles" ReturnType="Collection(PetsPlanetDBModel.GetCustomRoles_Result)">
+          <Parameter Name="U_Type" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetNewBlogs" ReturnType="Collection(PetsPlanetDBModel.GetNewBlogs_Result)" />
+          <FunctionImport Name="GetNewProducts" ReturnType="Collection(PetsPlanetDBModel.GetNewProducts_Result)" />
+          <FunctionImport Name="GetNewVendor" ReturnType="Collection(PetsPlanetDBModel.GetNewVendor_Result)" />
+          <FunctionImport Name="GetNotApproveBlogs" ReturnType="Collection(PetsPlanetDBModel.GetNotApproveBlogs_Result)" />
+          <FunctionImport Name="GetNotApproveVendor" ReturnType="Collection(PetsPlanetDBModel.GetNotApproveVendor_Result)" />
+          <FunctionImport Name="GetNotApproveVendorProducts" ReturnType="Collection(PetsPlanetDBModel.GetNotApproveVendorProducts_Result)" />
+          <FunctionImport Name="GetProductCart" ReturnType="Collection(PetsPlanetDBModel.GetProductCart_Result)">
+          <Parameter Name="PC3_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="NotApproveBlog">
+          <Parameter Name="Blog_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="NotApproveProduct" ReturnType="Collection(Int32)">
+          <Parameter Name="PC3_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="NotApprovVendor" ReturnType="Collection(Int32)">
+          <Parameter Name="VI_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Order" ReturnType="Collection(Decimal)">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="DeliveryAddress" Mode="In" Type="String" />
+            <Parameter Name="Phone1" Mode="In" Type="String" />
+            <Parameter Name="Phone2" Mode="In" Type="String" />
+            <Parameter Name="TotalPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="Totalitem" Mode="In" Type="Int32" />
+            <Parameter Name="PC3_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Qty" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PetsInfo" ReturnType="Collection(Decimal)">
+            <Parameter Name="PetsC1_Name" Mode="In" Type="String" />
+            <Parameter Name="PetsC2_Name" Mode="In" Type="String" />
+            <Parameter Name="PetsC3_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PetsPanelView" ReturnType="Collection(PetsPlanetDBModel.PetsPanelView_Result)" />
+          <FunctionImport Name="ProductDetailsGet" ReturnType="Collection(PetsPlanetDBModel.ProductDetailsGet_Result)">
+          <Parameter Name="PC3_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProductInfo" ReturnType="Collection(Decimal)">
+            <Parameter Name="PC1_Id" Mode="In" Type="String" />
+            <Parameter Name="PC2_Name" Mode="In" Type="String" />
+            <Parameter Name="PC3_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ProductPanelView" ReturnType="Collection(PetsPlanetDBModel.ProductPanelView_Result)" />
+          <FunctionImport Name="ProductSearch" ReturnType="Collection(PetsPlanetDBModel.ProductSearch_Result)">
+          <Parameter Name="ProSearch" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RegisterAdmin" ReturnType="Collection(Decimal)">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="US_Phone" Mode="In" Type="String" />
+            <Parameter Name="US_Address" Mode="In" Type="String" />
+            <Parameter Name="US_Email" Mode="In" Type="String" />
+            <Parameter Name="US_Password" Mode="In" Type="String" />
+            <Parameter Name="US_ConfirmCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RegisterBuyerSeller" ReturnType="Collection(Decimal)">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="US_Phone" Mode="In" Type="String" />
+            <Parameter Name="US_Address" Mode="In" Type="String" />
+            <Parameter Name="US_Email" Mode="In" Type="String" />
+            <Parameter Name="US_Password" Mode="In" Type="String" />
+            <Parameter Name="US_ConfirmCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RegisterVendor" ReturnType="Collection(Decimal)">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="US_Phone" Mode="In" Type="String" />
+            <Parameter Name="US_Address" Mode="In" Type="String" />
+            <Parameter Name="US_Email" Mode="In" Type="String" />
+            <Parameter Name="US_Password" Mode="In" Type="String" />
+            <Parameter Name="VI_CNIC" Mode="In" Type="String" />
+            <Parameter Name="VI_Province" Mode="In" Type="String" />
+            <Parameter Name="VI_City" Mode="In" Type="String" />
+            <Parameter Name="US_ConfirmCode" Mode="In" Type="String" />
+            <Parameter Name="VendorImage_ImagePath" Mode="In" Type="String" />
+            <Parameter Name="VendorImage_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchProduct" ReturnType="Collection(PetsPlanetDBModel.SearchProduct_Result)">
+          <Parameter Name="PC3_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectedPetDetails" ReturnType="Collection(PetsPlanetDBModel.SelectedPetDetails_Result)">
+          <Parameter Name="PetsC3_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectedProductDeatils" ReturnType="Collection(PetsPlanetDBModel.SelectedProductDeatils_Result)">
+          <Parameter Name="PC3_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SelectProductInfo" ReturnType="Collection(PetsPlanetDBModel.SelectProductInfo_Result)" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="UpdateProduct">
+            <Parameter Name="OldProductId" Mode="In" Type="Int32" />
+            <Parameter Name="PC1_Id" Mode="In" Type="Int32" />
+            <Parameter Name="PC2_Id" Mode="In" Type="Int32" />
+            <Parameter Name="PC3_Name" Mode="In" Type="String" />
+            <Parameter Name="VP_Desc" Mode="In" Type="String" />
+            <Parameter Name="VP_Specs" Mode="In" Type="String" />
+            <Parameter Name="VPQ_Qty" Mode="In" Type="Int32" />
+            <Parameter Name="Vendor_Price" Mode="In" Type="Int32" />
+            <Parameter Name="Company_Price" Mode="In" Type="Int32" />
+            <Parameter Name="ProImg_Path" Mode="In" Type="String" />
+            <Parameter Name="ProImg_Name" Mode="In" Type="String" />
+            <Parameter Name="ProImgId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UserLogin" ReturnType="Collection(Int32)">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="US_Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UserPetsEntry" ReturnType="Collection(Decimal)">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="PetsC1_Id" Mode="In" Type="Int32" />
+            <Parameter Name="PetsC2_Id" Mode="In" Type="Int32" />
+            <Parameter Name="PetsC3_Name" Mode="In" Type="String" />
+            <Parameter Name="Descrption" Mode="In" Type="String" />
+            <Parameter Name="Cost" Mode="In" Type="Int32" />
+            <Parameter Name="PetsImage_Path" Mode="In" Type="String" />
+            <Parameter Name="PetsImage_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VendorCommission">
+            <Parameter Name="VI_Id" Mode="In" Type="Int32" />
+            <Parameter Name="VI_Commission" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="VendorDetails" ReturnType="Collection(PetsPlanetDBModel.VendorDetails_Result)">
+          <Parameter Name="VI_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="VendorProductEntry" ReturnType="Collection(Decimal)">
+            <Parameter Name="US_Name" Mode="In" Type="String" />
+            <Parameter Name="PC1_Id" Mode="In" Type="String" />
+            <Parameter Name="PC2_Id" Mode="In" Type="String" />
+            <Parameter Name="PC3_Name" Mode="In" Type="String" />
+            <Parameter Name="ProImg_Path" Mode="In" Type="String" />
+            <Parameter Name="ProImg_Name" Mode="In" Type="String" />
+            <Parameter Name="VP_Desc" Mode="In" Type="String" />
+            <Parameter Name="VP_Specs" Mode="In" Type="String" />
+            <Parameter Name="VPQ_Qty" Mode="In" Type="Int32" />
+            <Parameter Name="VPQ_Status" Mode="In" Type="Int32" />
+            <Parameter Name="Vendor_Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Company_Price" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <AssociationSet Name="OrderDetails_To_OrderItem" Association="PetsPlanetDBModel.OrderDetails_To_OrderItem">
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <FunctionImport Name="GetCustomerDistinctOrders" ReturnType="Collection(PetsPlanetDBModel.GetCustomerDistinctOrders_Result)">
+          <Parameter Name="US_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserOrders" ReturnType="Collection(PetsPlanetDBModel.GetUserOrders_Result)">
+          <Parameter Name="US_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VendorOrders" ReturnType="Collection(PetsPlanetDBModel.VendorOrders_Result)">
+          <Parameter Name="US_Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VendorOrderDetails" ReturnType="Collection(PetsPlanetDBModel.VendorOrderDetails_Result)">
+            <Parameter Name="VendorName" Mode="In" Type="String" />
+            <Parameter Name="OrderID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="AllBlogView_Result">
+          <Property Type="Int32" Name="Blog_Id" Nullable="false" />
+          <Property Type="String" Name="Blog_Title" Nullable="true" />
+          <Property Type="DateTime" Name="Blog_Date" Nullable="true" />
+          <Property Type="String" Name="Blog_WholeBlog" Nullable="true" />
+          <Property Type="String" Name="Blogger_PicturePath" Nullable="true" />
+          <Property Type="String" Name="Blog_PicturePath" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="BlogDetailsGet_Result">
+          <Property Type="Int32" Name="Blog_Id" Nullable="false" />
+          <Property Type="String" Name="Blog_Title" Nullable="true" />
+          <Property Type="DateTime" Name="Blog_Date" Nullable="true" />
+          <Property Type="String" Name="Blog_WholeBlog" Nullable="true" />
+          <Property Type="String" Name="Blogger_PicturePath" Nullable="true" />
+          <Property Type="String" Name="Blog_PicturePath" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="BlogDisplay_Result">
+          <Property Type="Int32" Name="Blog_Id" Nullable="false" />
+          <Property Type="DateTime" Name="Blog_Date" Nullable="true" />
+          <Property Type="String" Name="Blogger_PicturePath" Nullable="true" />
+          <Property Type="String" Name="Blog_PicturePath" Nullable="true" />
+          <Property Type="String" Name="Blog_Title" Nullable="true" />
+          <Property Type="String" Name="Blog_WholeBlog" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetApproveBlogs_Result">
+          <Property Type="Int32" Name="Blog_Id" Nullable="false" />
+          <Property Type="String" Name="Blog_Title" Nullable="true" />
+          <Property Type="DateTime" Name="Blog_Date" Nullable="true" />
+          <Property Type="String" Name="Blog_WholeBlog" Nullable="true" />
+          <Property Type="String" Name="Blogger_PicturePath" Nullable="true" />
+          <Property Type="String" Name="Blog_PicturePath" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetApproveVendor_Result">
+          <Property Type="Int32" Name="VI_Id" Nullable="false" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="US_Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VI_CNIC" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="GetApproveVendorProducts_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetCustomRoles_Result">
+          <Property Type="Int32" Name="U_Id" Nullable="false" />
+          <Property Type="String" Name="U_Type" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetNewBlogs_Result">
+          <Property Type="Int32" Name="Blog_Id" Nullable="false" />
+          <Property Type="String" Name="Blog_Title" Nullable="true" />
+          <Property Type="DateTime" Name="Blog_Date" Nullable="true" />
+          <Property Type="String" Name="Blog_WholeBlog" Nullable="true" />
+          <Property Type="String" Name="Blogger_PicturePath" Nullable="true" />
+          <Property Type="String" Name="Blog_PicturePath" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetNewProducts_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetNewVendor_Result">
+          <Property Type="Int32" Name="VI_Id" Nullable="false" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="US_Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VI_CNIC" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="GetNotApproveBlogs_Result">
+          <Property Type="Int32" Name="Blog_Id" Nullable="false" />
+          <Property Type="String" Name="Blog_Title" Nullable="true" />
+          <Property Type="DateTime" Name="Blog_Date" Nullable="true" />
+          <Property Type="String" Name="Blog_WholeBlog" Nullable="true" />
+          <Property Type="String" Name="Blogger_PicturePath" Nullable="true" />
+          <Property Type="String" Name="Blog_PicturePath" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetNotApproveVendor_Result">
+          <Property Type="Int32" Name="VI_Id" Nullable="false" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="US_Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VI_CNIC" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="GetNotApproveVendorProducts_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetProductCart_Result">
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="PetsPanelView_Result">
+          <Property Type="Int32" Name="PetsC1_Id" Nullable="false" />
+          <Property Type="String" Name="PetsC1_Name" Nullable="false" />
+          <Property Type="Int32" Name="PetsC2_Id" Nullable="false" />
+          <Property Type="String" Name="PetsC2_Name" Nullable="false" />
+          <Property Type="Int32" Name="PetsC3_Id" Nullable="false" />
+          <Property Type="String" Name="PetsC3_Name" Nullable="false" />
+          <Property Type="String" Name="Descrption" Nullable="false" />
+          <Property Type="Int32" Name="Cost" Nullable="false" />
+          <Property Type="String" Name="Pets_Status" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PetsImage_Path" Nullable="true" />
+          <Property Type="String" Name="PetsImage_Name" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ProductDetailsGet_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="String" Name="VP_Desc" Nullable="true" />
+          <Property Type="String" Name="VP_Specs" Nullable="true" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+          <Property Type="String" Name="ProImg_Name" Nullable="true" />
+          <Property Type="Int32" Name="PC1_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC2_Id" Nullable="false" />
+          <Property Type="Int32" Name="ProImg_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ProductPanelView_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="String" Name="VP_Desc" Nullable="true" />
+          <Property Type="String" Name="VP_Specs" Nullable="true" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+          <Property Type="String" Name="ProImg_Name" Nullable="true" />
+          <Property Type="Int32" Name="PC1_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC2_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ProductSearch_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="String" Name="VP_Desc" Nullable="true" />
+          <Property Type="String" Name="VP_Specs" Nullable="true" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+          <Property Type="String" Name="ProImg_Name" Nullable="true" />
+          <Property Type="Int32" Name="PC1_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC2_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SearchProduct_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="String" Name="VP_Desc" Nullable="true" />
+          <Property Type="String" Name="VP_Specs" Nullable="true" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+          <Property Type="String" Name="ProImg_Name" Nullable="true" />
+          <Property Type="Int32" Name="PC1_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC2_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectedPetDetails_Result">
+          <Property Type="Int32" Name="PetsC1_Id" Nullable="false" />
+          <Property Type="String" Name="PetsC1_Name" Nullable="false" />
+          <Property Type="Int32" Name="PetsC2_Id" Nullable="false" />
+          <Property Type="String" Name="PetsC2_Name" Nullable="false" />
+          <Property Type="Int32" Name="PetsC3_Id" Nullable="false" />
+          <Property Type="String" Name="PetsC3_Name" Nullable="false" />
+          <Property Type="String" Name="Descrption" Nullable="false" />
+          <Property Type="Int32" Name="Cost" Nullable="false" />
+          <Property Type="String" Name="Pets_Status" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PetsImage_Path" Nullable="true" />
+          <Property Type="String" Name="PetsImage_Name" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="US_Phone" Nullable="false" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="SelectedProductDeatils_Result">
+          <Property Type="Int32" Name="Pro_Views" Nullable="true" />
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="String" Name="VP_Desc" Nullable="true" />
+          <Property Type="String" Name="VP_Specs" Nullable="true" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+          <Property Type="String" Name="ProImg_Name" Nullable="true" />
+          <Property Type="Int32" Name="PC1_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC2_Id" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SelectProductInfo_Result">
+          <Property Type="String" Name="PC1_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC2_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="Int32" Name="VPQ_Qty" Nullable="true" />
+          <Property Type="Int32" Name="Vendor_Price" Nullable="false" />
+          <Property Type="Int32" Name="Company_Price" Nullable="false" />
+          <Property Type="Int32" Name="PC3_Id" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="VendorDetails_Result">
+          <Property Type="String" Name="US_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="US_Phone" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="US_Address" Nullable="false" />
+          <Property Type="String" Name="US_Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VI_CNIC" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="VI_Province" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="VI_City" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="VendorImage_Id" Nullable="false" />
+          <Property Type="String" Name="VendorImage_ImagePath" Nullable="true" />
+        </ComplexType>
+        <Association Name="OrderDetails_To_OrderItem">
+          <End Type="PetsPlanetDBModel.OrderDetail" Role="OrderDetail" Multiplicity="0..1" />
+          <End Type="PetsPlanetDBModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetail">
+              <PropertyRef Name="OD_Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="OD_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetCustomerDistinctOrders_Result">
+          <Property Type="Int32" Name="OD_Id" Nullable="false" />
+          <Property Type="DateTime" Name="OrderDate" Nullable="true" />
+          <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetUserOrders_Result">
+          <Property Type="Int32" Name="OD_Id" Nullable="false" />
+          <Property Type="Int32" Name="US_Id" Nullable="true" />
+          <Property Type="String" Name="DeliveryAddress" Nullable="true" />
+          <Property Type="String" Name="Phone1" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Phone2" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="Totalitem" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="true" />
+          <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="OrderDate" Nullable="true" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="String" Name="VP_Desc" Nullable="true" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="QuantityOrder" Nullable="true" />
+          <Property Type="Decimal" Name="TotalItemPrice" Nullable="true" Precision="19" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="VendorOrders_Result">
+          <Property Type="Int32" Name="OD_Id" Nullable="false" />
+          <Property Type="DateTime" Name="OrderDate" Nullable="true" />
+          <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="VendorOrderDetails_Result">
+          <Property Type="Int32" Name="OD_Id" Nullable="false" />
+          <Property Type="Int32" Name="US_Id" Nullable="true" />
+          <Property Type="String" Name="DeliveryAddress" Nullable="true" />
+          <Property Type="String" Name="Phone1" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Phone2" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="TotalPrice" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="Totalitem" Nullable="true" />
+          <Property Type="String" Name="US_Name" Nullable="true" />
+          <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="OrderDate" Nullable="true" />
+          <Property Type="String" Name="PC3_Name" Nullable="false" />
+          <Property Type="String" Name="VP_Desc" Nullable="true" />
+          <Property Type="Decimal" Name="UnitPrice" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="QuantityOrder" Nullable="true" />
+          <Property Type="Decimal" Name="TotalItemPrice" Nullable="true" Precision="19" />
+          <Property Type="String" Name="ProImg_Path" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PetsPlanetDBModelStoreContainer" CdmEntityContainer="PetsPlanetDBContext">
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+                <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+                <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+                <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+                <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+                <ScalarProperty Name="Blogger_PictureName" ColumnName="Blogger_PictureName" />
+                <ScalarProperty Name="Blog_PictureName" ColumnName="Blog_PictureName" />
+                <ScalarProperty Name="Blog_Status" ColumnName="Blog_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Totalitem" ColumnName="Totalitem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="OrderitemID" ColumnName="OrderitemID" />
+                <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+                <ScalarProperty Name="VPC_Id" ColumnName="VPC_Id" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="QuantityOrder" ColumnName="QuantityOrder" />
+                <ScalarProperty Name="TotalItemPrice" ColumnName="TotalItemPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets_Warehouses">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_Warehouse">
+              <MappingFragment StoreEntitySet="Pets Warehouse">
+                <ScalarProperty Name="PetsWarehouse_Id" ColumnName="PetsWarehouse_Id" />
+                <ScalarProperty Name="Descrption" ColumnName="Descrption" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Pets_Status" ColumnName="Pets_Status" />
+                <ScalarProperty Name="ApprovedPets" ColumnName="ApprovedPets" />
+                <ScalarProperty Name="NotApprovedPets" ColumnName="NotApprovedPets" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets_C1">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_C1">
+              <MappingFragment StoreEntitySet="Pets_C1">
+                <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+                <ScalarProperty Name="PetsC1_Name" ColumnName="PetsC1_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets_C2">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_C2">
+              <MappingFragment StoreEntitySet="Pets_C2">
+                <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+                <ScalarProperty Name="PetsC2_Name" ColumnName="PetsC2_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets_C3">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_C3">
+              <MappingFragment StoreEntitySet="Pets_C3">
+                <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+                <ScalarProperty Name="PetsC3_Name" ColumnName="PetsC3_Name" />
+                <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+                <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets_Image">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_Image">
+              <MappingFragment StoreEntitySet="Pets_Image">
+                <ScalarProperty Name="PetsImage_Id" ColumnName="PetsImage_Id" />
+                <ScalarProperty Name="PetsImage_Path" ColumnName="PetsImage_Path" />
+                <ScalarProperty Name="PetsImage_Name" ColumnName="PetsImage_Name" />
+                <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pets_Inventory">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Pets_Inventory">
+              <MappingFragment StoreEntitySet="Pets_Inventory">
+                <ScalarProperty Name="PetInventory_Id" ColumnName="PetInventory_Id" />
+                <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+                <ScalarProperty Name="PetsWarehouse_Id" ColumnName="PetsWarehouse_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_C1">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_C1">
+              <MappingFragment StoreEntitySet="Product_C1">
+                <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_C2">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_C2">
+              <MappingFragment StoreEntitySet="Product_C2">
+                <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_C3">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_C3">
+              <MappingFragment StoreEntitySet="Product_C3">
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+                <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+                <ScalarProperty Name="ProImg_Id" ColumnName="ProImg_Id" />
+                <ScalarProperty Name="Pro_Views" ColumnName="Pro_Views" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Image">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_Image">
+              <MappingFragment StoreEntitySet="Product_Image">
+                <ScalarProperty Name="ProImg_Id" ColumnName="ProImg_Id" />
+                <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Inventory">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_Inventory">
+              <MappingFragment StoreEntitySet="Product_Inventory">
+                <ScalarProperty Name="PI_Id" ColumnName="PI_Id" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+                <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+                <ScalarProperty Name="PI_OutOfStock" ColumnName="PI_OutOfStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Inverntory_Sales">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Product_Inverntory_Sales">
+              <MappingFragment StoreEntitySet="Product-Inverntory Sales">
+                <ScalarProperty Name="PIS_Id" ColumnName="PIS_Id" />
+                <ScalarProperty Name="VP_Id" ColumnName="VP_Id" />
+                <ScalarProperty Name="PIS_SalesPrice" ColumnName="PIS_SalesPrice" />
+                <ScalarProperty Name="PIS_CompanyPrice" ColumnName="PIS_CompanyPrice" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Info">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.User_Info">
+              <MappingFragment StoreEntitySet="User_Info">
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="US_Phone" ColumnName="US_Phone" />
+                <ScalarProperty Name="US_Address" ColumnName="US_Address" />
+                <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+                <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+                <ScalarProperty Name="US_Password" ColumnName="US_Password" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+                <ScalarProperty Name="US_ConfirmCode" ColumnName="US_ConfirmCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Type">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.User_Type">
+              <MappingFragment StoreEntitySet="User_Type">
+                <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+                <ScalarProperty Name="U_Type" ColumnName="U_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendor_Products">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Product">
+              <MappingFragment StoreEntitySet="Vendor Product">
+                <ScalarProperty Name="VP_Id" ColumnName="VP_Id" />
+                <ScalarProperty Name="VP_ApproveProduct" ColumnName="VP_ApproveProduct" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+                <ScalarProperty Name="PI_Id" ColumnName="PI_Id" />
+                <ScalarProperty Name="VP_NotApproveProduct" ColumnName="VP_NotApproveProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendor_Product_Qties">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Product_Qty">
+              <MappingFragment StoreEntitySet="Vendor Product Qty">
+                <ScalarProperty Name="VPQ_Id" ColumnName="VPQ_Id" />
+                <ScalarProperty Name="VP_Id" ColumnName="VP_Id" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="VPQ_Status" ColumnName="VPQ_Status" />
+                <ScalarProperty Name="VPQ_RemainingQty" ColumnName="VPQ_RemainingQty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendor_Image">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Image">
+              <MappingFragment StoreEntitySet="Vendor_Image">
+                <ScalarProperty Name="VendorImage_Id" ColumnName="VendorImage_Id" />
+                <ScalarProperty Name="VendorImage_Name" ColumnName="VendorImage_Name" />
+                <ScalarProperty Name="VendorImage_ImagePath" ColumnName="VendorImage_ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendor_Info">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Info">
+              <MappingFragment StoreEntitySet="Vendor_Info">
+                <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+                <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+                <ScalarProperty Name="VI_Province" ColumnName="VI_Province" />
+                <ScalarProperty Name="VI_City" ColumnName="VI_City" />
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+                <ScalarProperty Name="VI_Approved" ColumnName="VI_Approved" />
+                <ScalarProperty Name="VI_NotApproved" ColumnName="VI_NotApproved" />
+                <ScalarProperty Name="VendorImage_Id" ColumnName="VendorImage_Id" />
+                <ScalarProperty Name="VI_Commission" ColumnName="VI_Commission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendor_Product_Cost">
+            <EntityTypeMapping TypeName="PetsPlanetDBModel.Vendor_Product_Cost">
+              <MappingFragment StoreEntitySet="Vendor-Product Cost">
+                <ScalarProperty Name="VPC_Id" ColumnName="VPC_Id" />
+                <ScalarProperty Name="VPQ_Id" ColumnName="VPQ_Id" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddnewProductCat_1" FunctionName="PetsPlanetDBModel.Store.AddnewProductCat_1" />
+          <FunctionImportMapping FunctionImportName="AddnewProductCat_2" FunctionName="PetsPlanetDBModel.Store.AddnewProductCat_2" />
+          <FunctionImportMapping FunctionImportName="AllBlogView" FunctionName="PetsPlanetDBModel.Store.AllBlogView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.AllBlogView_Result">
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+                <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+                <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+                <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+                <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ApproveBlog" FunctionName="PetsPlanetDBModel.Store.ApproveBlog" />
+          <FunctionImportMapping FunctionImportName="ApproveProduct" FunctionName="PetsPlanetDBModel.Store.ApproveProduct" />
+          <FunctionImportMapping FunctionImportName="ApprovVendor" FunctionName="PetsPlanetDBModel.Store.ApprovVendor" />
+          <FunctionImportMapping FunctionImportName="BlogDetailsGet" FunctionName="PetsPlanetDBModel.Store.BlogDetailsGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.BlogDetailsGet_Result">
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+                <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+                <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+                <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+                <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BlogDisplay" FunctionName="PetsPlanetDBModel.Store.BlogDisplay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.BlogDisplay_Result">
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+                <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+                <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+                <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+                <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BlogUploading" FunctionName="PetsPlanetDBModel.Store.BlogUploading" />
+          <FunctionImportMapping FunctionImportName="CheckUserIsAdmin" FunctionName="PetsPlanetDBModel.Store.CheckUserIsAdmin" />
+          <FunctionImportMapping FunctionImportName="CheckUserIsBuyerSeller" FunctionName="PetsPlanetDBModel.Store.CheckUserIsBuyerSeller" />
+          <FunctionImportMapping FunctionImportName="CheckUserIsVendor" FunctionName="PetsPlanetDBModel.Store.CheckUserIsVendor" />
+          <FunctionImportMapping FunctionImportName="DeleteBlog" FunctionName="PetsPlanetDBModel.Store.DeleteBlog" />
+          <FunctionImportMapping FunctionImportName="DeleteVendor" FunctionName="PetsPlanetDBModel.Store.DeleteVendor" />
+          <FunctionImportMapping FunctionImportName="DeleteVendorProduct" FunctionName="PetsPlanetDBModel.Store.DeleteVendorProduct" />
+          <FunctionImportMapping FunctionImportName="EmailVerification" FunctionName="PetsPlanetDBModel.Store.EmailVerification" />
+          <FunctionImportMapping FunctionImportName="GetApproveBlogs" FunctionName="PetsPlanetDBModel.Store.GetApproveBlogs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetApproveBlogs_Result">
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+                <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+                <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+                <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+                <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetApproveVendor" FunctionName="PetsPlanetDBModel.Store.GetApproveVendor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetApproveVendor_Result">
+                <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+                <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetApproveVendorProducts" FunctionName="PetsPlanetDBModel.Store.GetApproveVendorProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetApproveVendorProducts_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCustomRoles" FunctionName="PetsPlanetDBModel.Store.GetCustomRoles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetCustomRoles_Result">
+                <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+                <ScalarProperty Name="U_Type" ColumnName="U_Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetNewBlogs" FunctionName="PetsPlanetDBModel.Store.GetNewBlogs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNewBlogs_Result">
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+                <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+                <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+                <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+                <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetNewProducts" FunctionName="PetsPlanetDBModel.Store.GetNewProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNewProducts_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetNewVendor" FunctionName="PetsPlanetDBModel.Store.GetNewVendor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNewVendor_Result">
+                <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+                <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetNotApproveBlogs" FunctionName="PetsPlanetDBModel.Store.GetNotApproveBlogs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNotApproveBlogs_Result">
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Blog_Title" ColumnName="Blog_Title" />
+                <ScalarProperty Name="Blog_Date" ColumnName="Blog_Date" />
+                <ScalarProperty Name="Blog_WholeBlog" ColumnName="Blog_WholeBlog" />
+                <ScalarProperty Name="Blogger_PicturePath" ColumnName="Blogger_PicturePath" />
+                <ScalarProperty Name="Blog_PicturePath" ColumnName="Blog_PicturePath" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetNotApproveVendor" FunctionName="PetsPlanetDBModel.Store.GetNotApproveVendor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNotApproveVendor_Result">
+                <ScalarProperty Name="VI_Id" ColumnName="VI_Id" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+                <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetNotApproveVendorProducts" FunctionName="PetsPlanetDBModel.Store.GetNotApproveVendorProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetNotApproveVendorProducts_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetProductCart" FunctionName="PetsPlanetDBModel.Store.GetProductCart">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetProductCart_Result">
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="NotApproveBlog" FunctionName="PetsPlanetDBModel.Store.NotApproveBlog" />
+          <FunctionImportMapping FunctionImportName="NotApproveProduct" FunctionName="PetsPlanetDBModel.Store.NotApproveProduct" />
+          <FunctionImportMapping FunctionImportName="NotApprovVendor" FunctionName="PetsPlanetDBModel.Store.NotApprovVendor" />
+          <FunctionImportMapping FunctionImportName="Order" FunctionName="PetsPlanetDBModel.Store.Order" />
+          <FunctionImportMapping FunctionImportName="PetsInfo" FunctionName="PetsPlanetDBModel.Store.PetsInfo" />
+          <FunctionImportMapping FunctionImportName="PetsPanelView" FunctionName="PetsPlanetDBModel.Store.PetsPanelView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.PetsPanelView_Result">
+                <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+                <ScalarProperty Name="PetsC1_Name" ColumnName="PetsC1_Name" />
+                <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+                <ScalarProperty Name="PetsC2_Name" ColumnName="PetsC2_Name" />
+                <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+                <ScalarProperty Name="PetsC3_Name" ColumnName="PetsC3_Name" />
+                <ScalarProperty Name="Descrption" ColumnName="Descrption" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Pets_Status" ColumnName="Pets_Status" />
+                <ScalarProperty Name="PetsImage_Path" ColumnName="PetsImage_Path" />
+                <ScalarProperty Name="PetsImage_Name" ColumnName="PetsImage_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProductDetailsGet" FunctionName="PetsPlanetDBModel.Store.ProductDetailsGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.ProductDetailsGet_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+                <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+                <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+                <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+                <ScalarProperty Name="ProImg_Id" ColumnName="ProImg_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProductInfo" FunctionName="PetsPlanetDBModel.Store.ProductInfo" />
+          <FunctionImportMapping FunctionImportName="ProductPanelView" FunctionName="PetsPlanetDBModel.Store.ProductPanelView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.ProductPanelView_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+                <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+                <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+                <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProductSearch" FunctionName="PetsPlanetDBModel.Store.ProductSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.ProductSearch_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+                <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+                <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+                <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RegisterAdmin" FunctionName="PetsPlanetDBModel.Store.RegisterAdmin" />
+          <FunctionImportMapping FunctionImportName="RegisterBuyerSeller" FunctionName="PetsPlanetDBModel.Store.RegisterBuyerSeller" />
+          <FunctionImportMapping FunctionImportName="RegisterVendor" FunctionName="PetsPlanetDBModel.Store.RegisterVendor" />
+          <FunctionImportMapping FunctionImportName="SearchProduct" FunctionName="PetsPlanetDBModel.Store.SearchProduct">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.SearchProduct_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+                <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+                <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+                <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectedPetDetails" FunctionName="PetsPlanetDBModel.Store.SelectedPetDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.SelectedPetDetails_Result">
+                <ScalarProperty Name="PetsC1_Id" ColumnName="PetsC1_Id" />
+                <ScalarProperty Name="PetsC1_Name" ColumnName="PetsC1_Name" />
+                <ScalarProperty Name="PetsC2_Id" ColumnName="PetsC2_Id" />
+                <ScalarProperty Name="PetsC2_Name" ColumnName="PetsC2_Name" />
+                <ScalarProperty Name="PetsC3_Id" ColumnName="PetsC3_Id" />
+                <ScalarProperty Name="PetsC3_Name" ColumnName="PetsC3_Name" />
+                <ScalarProperty Name="Descrption" ColumnName="Descrption" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Pets_Status" ColumnName="Pets_Status" />
+                <ScalarProperty Name="PetsImage_Path" ColumnName="PetsImage_Path" />
+                <ScalarProperty Name="PetsImage_Name" ColumnName="PetsImage_Name" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="US_Phone" ColumnName="US_Phone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectedProductDeatils" FunctionName="PetsPlanetDBModel.Store.SelectedProductDeatils">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.SelectedProductDeatils_Result">
+                <ScalarProperty Name="Pro_Views" ColumnName="Pro_Views" />
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="VP_Specs" ColumnName="VP_Specs" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+                <ScalarProperty Name="ProImg_Name" ColumnName="ProImg_Name" />
+                <ScalarProperty Name="PC1_Id" ColumnName="PC1_Id" />
+                <ScalarProperty Name="PC2_Id" ColumnName="PC2_Id" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectProductInfo" FunctionName="PetsPlanetDBModel.Store.SelectProductInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.SelectProductInfo_Result">
+                <ScalarProperty Name="PC1_Name" ColumnName="PC1_Name" />
+                <ScalarProperty Name="PC2_Name" ColumnName="PC2_Name" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VPQ_Qty" ColumnName="VPQ_Qty" />
+                <ScalarProperty Name="Vendor_Price" ColumnName="Vendor_Price" />
+                <ScalarProperty Name="Company_Price" ColumnName="Company_Price" />
+                <ScalarProperty Name="PC3_Id" ColumnName="PC3_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PetsPlanetDBModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PetsPlanetDBModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PetsPlanetDBModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PetsPlanetDBModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PetsPlanetDBModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PetsPlanetDBModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PetsPlanetDBModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="UpdateProduct" FunctionName="PetsPlanetDBModel.Store.UpdateProduct" />
+          <FunctionImportMapping FunctionImportName="UserLogin" FunctionName="PetsPlanetDBModel.Store.UserLogin" />
+          <FunctionImportMapping FunctionImportName="UserPetsEntry" FunctionName="PetsPlanetDBModel.Store.UserPetsEntry" />
+          <FunctionImportMapping FunctionImportName="VendorCommission" FunctionName="PetsPlanetDBModel.Store.VendorCommission" />
+          <FunctionImportMapping FunctionImportName="VendorDetails" FunctionName="PetsPlanetDBModel.Store.VendorDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.VendorDetails_Result">
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="US_Phone" ColumnName="US_Phone" />
+                <ScalarProperty Name="US_Address" ColumnName="US_Address" />
+                <ScalarProperty Name="US_Email" ColumnName="US_Email" />
+                <ScalarProperty Name="VI_CNIC" ColumnName="VI_CNIC" />
+                <ScalarProperty Name="VI_Province" ColumnName="VI_Province" />
+                <ScalarProperty Name="VI_City" ColumnName="VI_City" />
+                <ScalarProperty Name="VendorImage_Id" ColumnName="VendorImage_Id" />
+                <ScalarProperty Name="VendorImage_ImagePath" ColumnName="VendorImage_ImagePath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VendorProductEntry" FunctionName="PetsPlanetDBModel.Store.VendorProductEntry" />
+          <FunctionImportMapping FunctionImportName="GetCustomerDistinctOrders" FunctionName="PetsPlanetDBModel.Store.GetCustomerDistinctOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetCustomerDistinctOrders_Result">
+                <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserOrders" FunctionName="PetsPlanetDBModel.Store.GetUserOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.GetUserOrders_Result">
+                <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Totalitem" ColumnName="Totalitem" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="QuantityOrder" ColumnName="QuantityOrder" />
+                <ScalarProperty Name="TotalItemPrice" ColumnName="TotalItemPrice" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VendorOrders" FunctionName="PetsPlanetDBModel.Store.VendorOrders">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.VendorOrders_Result">
+                <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VendorOrderDetails" FunctionName="PetsPlanetDBModel.Store.VendorOrderDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PetsPlanetDBModel.VendorOrderDetails_Result">
+                <ScalarProperty Name="OD_Id" ColumnName="OD_Id" />
+                <ScalarProperty Name="US_Id" ColumnName="US_Id" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Totalitem" ColumnName="Totalitem" />
+                <ScalarProperty Name="US_Name" ColumnName="US_Name" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="PC3_Name" ColumnName="PC3_Name" />
+                <ScalarProperty Name="VP_Desc" ColumnName="VP_Desc" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="QuantityOrder" ColumnName="QuantityOrder" />
+                <ScalarProperty Name="TotalItemPrice" ColumnName="TotalItemPrice" />
+                <ScalarProperty Name="ProImg_Path" ColumnName="ProImg_Path" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
